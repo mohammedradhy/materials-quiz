@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -39,10 +40,10 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-    /* Smooth Dynamic Ambient Backgrounds - Pure OLED Black in Dark Mode */
+    /* Deep OLED Black Ambient Background in Dark Mode */
     .dark .smooth-bg {
-      background: radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
-                  radial-gradient(circle at 85% 85%, rgba(217, 70, 239, 0.09) 0%, transparent 50%),
+      background: radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.14) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 85%, rgba(217, 70, 239, 0.10) 0%, transparent 50%),
                   radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 65%),
                   #000000;
       background-color: #000000;
@@ -53,37 +54,37 @@
                   radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.07) 0%, transparent 60%),
                   #f8fafc;
     }
-    /* Glassmorphism Cards - Deep Pitch Black Depth in Dark Mode */
+    /* Glassmorphism Cards */
     .dark .glass-card {
-      background: rgba(10, 10, 12, 0.88);
+      background: rgba(12, 12, 16, 0.90);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.90);
     }
     .light .glass-card {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      box-shadow: 0 16px 35px -10px rgba(100, 116, 139, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 16px 35px -10px rgba(100, 116, 139, 0.16);
     }
-    /* Custom Keyframe Animations */
+    /* Dynamic Animations */
     @keyframes pulse-subtle {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.03); }
     }
     @keyframes urgent-pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.04); opacity: 0.9; filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.7)); }
+      50% { transform: scale(1.03); opacity: 0.92; filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.75)); }
     }
     .pulse-streak {
       animation: pulse-subtle 1.2s infinite ease-in-out;
     }
     .timer-urgent {
-      animation: urgent-pulse 0.75s infinite ease-in-out;
+      animation: urgent-pulse 0.7s infinite ease-in-out;
     }
-    /* Custom Scrollbar for Leaderboard and Questions */
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -99,314 +100,302 @@
 </head>
 <body class="smooth-bg min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white relative overflow-x-hidden text-slate-800 dark:text-slate-100 transition-colors duration-300">
 
-  <!-- Ambient glowing blur orbs for visual depth -->
+  <!-- Ambient glowing blur orbs for depth -->
   <div class="fixed top-[-10%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-indigo-600/15 blur-[120px] pointer-events-none -z-10 animate-pulse"></div>
   <div class="fixed bottom-[-10%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-purple-600/15 blur-[120px] pointer-events-none -z-10"></div>
 
-  <!-- Fullscreen Celebration Fireworks & Confetti Canvas -->
+  <!-- Fullscreen Celebration Fireworks Canvas -->
   <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
 
   <!-- Interactive Floating Notification Toast -->
   <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="glass-card px-4 py-3 rounded-2xl flex items-center space-x-3 border border-indigo-500/40 shadow-2xl text-slate-900 dark:text-white text-xs sm:text-sm font-semibold">
-      <span id="toastIcon" class="text-xl">✨</span>
-      <span id="toastMessage">Action completed!</span>
+    <div class="glass-card px-5 py-3.5 rounded-2xl flex items-center space-x-3 border border-indigo-500/40 shadow-2xl text-slate-900 dark:text-white text-sm font-semibold">
+      <span id="toastIcon" class="text-2xl">✨</span>
+      <span id="toastMessage">Notification</span>
     </div>
   </div>
 
   <!-- Main Top Bar -->
-  <header class="bg-white/80 dark:bg-black/80 backdrop-blur border-b border-slate-200 dark:border-zinc-800 sticky top-0 z-40 px-3 sm:px-6 py-2.5 transition-colors duration-300 shadow-sm">
-    <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+  <header class="bg-white/85 dark:bg-black/85 backdrop-blur border-b border-slate-200 dark:border-zinc-800 sticky top-0 z-40 px-3 sm:px-6 py-3 transition-colors duration-300 shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
       <!-- Title & Branding -->
-      <div class="flex items-center space-x-2.5 sm:space-x-3 truncate">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-bold text-lg shadow-md shadow-blue-500/20 text-white shrink-0">
+      <div class="flex items-center space-x-3 truncate">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-bold text-xl shadow-md shadow-blue-500/25 text-white shrink-0">
           🏗️
         </div>
         <div class="truncate">
-          <h1 class="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5 truncate">
+          <h1 class="text-sm sm:text-base font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2 truncate">
             <span>Materials Diagnostic Quest</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 font-bold border border-indigo-500/30 hidden md:inline-block">
+            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 font-bold border border-indigo-500/30 hidden md:inline-block">
               Construction and Building Engineering
             </span>
           </h1>
-          <p id="playerBadgeHeader" class="text-[11px] text-slate-500 dark:text-zinc-400 font-medium truncate">Guest Engineer</p>
+          <p id="playerBadgeHeader" class="text-xs text-slate-500 dark:text-zinc-400 font-semibold truncate">Guest Engineer</p>
         </div>
       </div>
 
       <!-- Action Buttons: Live Leaderboard, QR Join, Theme & Sound -->
-      <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
-        <!-- Live Active Session Player Counter (Visible to ALL users) -->
-        <div class="flex items-center space-x-1 bg-slate-100 dark:bg-zinc-900 px-2 sm:px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-zinc-800 shadow-sm" title="Total active players in this session">
-          <span class="text-indigo-500 text-xs sm:text-sm">👥</span>
+      <div class="flex items-center space-x-2 shrink-0">
+        <!-- Live Active Session Player Counter -->
+        <div class="flex items-center space-x-1.5 bg-slate-100 dark:bg-zinc-900 px-3 py-1.5 rounded-xl border border-slate-300 dark:border-zinc-800 shadow-sm" title="Active players in current session">
+          <span class="text-indigo-500 text-sm sm:text-base">👥</span>
           <div class="text-right">
-            <span class="text-[8px] text-slate-500 dark:text-zinc-400 uppercase tracking-wider block font-bold leading-none hidden sm:block">Players</span>
-            <span id="globalPlayerCount" class="text-xs font-black text-indigo-600 dark:text-indigo-300">0</span>
+            <span class="text-[9px] text-slate-500 dark:text-zinc-400 uppercase tracking-wider block font-bold leading-none hidden sm:block">Players</span>
+            <span id="globalPlayerCount" class="text-sm font-black text-indigo-600 dark:text-indigo-300">0</span>
           </div>
         </div>
 
-        <!-- Live Counters (Hidden on Welcome Screen) -->
-        <div id="liveStatsBar" class="hidden flex items-center space-x-1.5 sm:space-x-2">
-          <!-- Streak Badge -->
-          <div class="flex items-center space-x-1 bg-slate-100 dark:bg-zinc-900 px-2 sm:px-2.5 py-1 rounded-lg border border-slate-300 dark:border-zinc-800 shadow-sm">
-            <span class="text-amber-500 text-xs sm:text-sm">🔥</span>
-            <div class="text-right">
-              <span class="text-[8px] text-slate-500 dark:text-zinc-400 uppercase tracking-wider block font-bold leading-none hidden sm:block">Streak</span>
-              <span id="streakCount" class="text-xs font-black text-amber-600 dark:text-amber-300">0</span>
-            </div>
+        <!-- Live XP & Streak Counters (Active in Quiz) -->
+        <div id="liveStatsBar" class="hidden flex items-center space-x-2">
+          <div class="flex items-center space-x-1.5 bg-slate-100 dark:bg-zinc-900 px-2.5 py-1.5 rounded-xl border border-slate-300 dark:border-zinc-800 shadow-sm">
+            <span class="text-amber-500 text-sm">🔥</span>
+            <span id="streakCount" class="text-sm font-black text-amber-600 dark:text-amber-300">0</span>
           </div>
-          <!-- XP Badge -->
-          <div class="flex items-center space-x-1 bg-slate-100 dark:bg-zinc-900 px-2 sm:px-2.5 py-1 rounded-lg border border-slate-300 dark:border-zinc-800 shadow-sm">
-            <span class="text-emerald-500 text-xs sm:text-sm">⚡</span>
-            <div class="text-right">
-              <span class="text-[8px] text-slate-500 dark:text-zinc-400 uppercase tracking-wider block font-bold leading-none hidden sm:block">XP</span>
-              <span id="scoreXp" class="text-xs font-black text-emerald-600 dark:text-emerald-300">0</span>
-            </div>
+          <div class="flex items-center space-x-1.5 bg-slate-100 dark:bg-zinc-900 px-2.5 py-1.5 rounded-xl border border-slate-300 dark:border-zinc-800 shadow-sm">
+            <span class="text-emerald-500 text-sm">⚡</span>
+            <span id="scoreXp" class="text-sm font-black text-emerald-600 dark:text-emerald-300">0</span>
           </div>
         </div>
 
         <!-- QR Code Join Button -->
-        <button onclick="openQrModal()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-sm" title="Show QR Code to invite others">
+        <button onclick="openQrModal()" class="px-3 py-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-sm">
           <span>📱</span>
           <span class="hidden sm:inline">Join via QR</span>
         </button>
 
-        <!-- Instructor Portal (Passcode Protected) -->
-        <button onclick="handleInstructorAccessClick()" id="instructorHeaderBtn" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/60 hover:bg-purple-100 dark:hover:bg-purple-900/60 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800 font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-sm" title="Instructor Live Analytics">
+        <!-- Instructor Portal (Protected) -->
+        <button onclick="handleInstructorAccessClick()" id="instructorHeaderBtn" class="px-3 py-2 rounded-xl bg-purple-50 dark:bg-purple-950/60 hover:bg-purple-100 dark:hover:bg-purple-900/60 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-sm">
           <span>🔑</span>
           <span class="hidden sm:inline">Instructor View</span>
-          <span id="instructorLockBadge" class="text-[9px] px-1.5 py-0.2 bg-purple-200 dark:bg-purple-900/80 rounded font-mono font-bold">🔒 Locked</span>
+          <span id="instructorLockBadge" class="text-[10px] px-2 py-0.5 bg-purple-200 dark:bg-purple-900/80 rounded-md font-mono font-bold">🔒 Locked</span>
         </button>
 
-        <!-- Dynamic Scoreboard / Hall of Fame Button -->
-        <button onclick="openDashboardModal('scoreboard')" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-md shadow-amber-500/20" title="View Dynamic Scoreboard & Hall of Fame">
+        <!-- Hall of Fame Button -->
+        <button onclick="openDashboardModal('scoreboard')" class="px-3 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-md shadow-amber-500/20">
           <span>🏆</span>
           <span class="hidden sm:inline">Hall of Fame</span>
-          <span id="participantBadgeCount" class="px-1.5 py-0.2 bg-black/30 rounded-full text-[10px]">0</span>
+          <span id="participantBadgeCount" class="px-2 py-0.5 bg-black/30 rounded-full text-xs">0</span>
         </button>
 
-        <!-- Light / Dark Mode Toggle Button -->
-        <button id="themeToggleBtn" onclick="toggleTheme()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-slate-100 dark:bg-zinc-900 hover:bg-slate-200 dark:hover:bg-zinc-800 text-slate-700 dark:text-slate-300 flex items-center justify-center transition border border-slate-300 dark:border-zinc-800 text-xs sm:text-sm shadow-sm" title="Toggle Light/Dark Theme">
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 dark:bg-zinc-900 hover:bg-slate-200 dark:hover:bg-zinc-800 text-slate-700 dark:text-slate-300 flex items-center justify-center transition border border-slate-300 dark:border-zinc-800 text-sm sm:text-base shadow-sm">
           🌙
         </button>
 
-        <!-- Sound Toggle Button -->
-        <button id="soundToggleBtn" onclick="toggleAudio()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-slate-100 dark:bg-zinc-900 hover:bg-slate-200 dark:hover:bg-zinc-800 text-slate-700 dark:text-slate-300 flex items-center justify-center transition border border-slate-300 dark:border-zinc-800 text-xs sm:text-sm shadow-sm" title="Toggle Sound">
+        <!-- Sound Toggle -->
+        <button id="soundToggleBtn" onclick="toggleAudio()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 dark:bg-zinc-900 hover:bg-slate-200 dark:hover:bg-zinc-800 text-slate-700 dark:text-slate-300 flex items-center justify-center transition border border-slate-300 dark:border-zinc-800 text-sm sm:text-base shadow-sm">
           🔊
         </button>
       </div>
     </div>
   </header>
 
-  <main class="flex-grow max-w-5xl w-full mx-auto p-3 sm:p-6 flex flex-col justify-center">
+  <main class="flex-grow max-w-5xl w-full mx-auto p-4 sm:p-7 flex flex-col justify-center">
 
-    <!-- ======================================================== -->
-    <!-- SCREEN 1: WELCOME & REGISTRATION                         -->
-    <!-- ======================================================== -->
-    <div id="welcomeScreen" class="glass-card rounded-2xl p-5 sm:p-10 shadow-2xl relative overflow-hidden transition-all duration-300">
-      <div class="text-center max-w-xl mx-auto space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider">
+    <!-- SCREEN 1: WELCOME & REGISTRATION -->
+    <div id="welcomeScreen" class="glass-card rounded-3xl p-6 sm:p-11 shadow-2xl relative overflow-hidden transition-all duration-300">
+      <div class="text-center max-w-xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-bold uppercase tracking-wider">
           Materials Diagnostic Quest • Construction and Building Engineering
         </div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-extrabold">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>Session Live: <strong id="welcomePlayerCount">0</strong> Engineers in Session</span>
         </div>
-        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        <h2 class="text-2xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
           Test Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-300">Materials Knowledge</span>
         </h2>
-        <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-base leading-relaxed">
-          From coastal durability in Alexandria to destructive vs non-destructive testing, answer 13 practical engineering questions. Compete in real-time on the class scoreboard!
+        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-lg leading-relaxed">
+          From coastal durability in Alexandria to destructive vs non-destructive testing, answer 13 engineering diagnostics. Compete in real-time on the class scoreboard!
         </p>
       </div>
 
-      <div class="mt-6 max-w-md mx-auto space-y-4 bg-white/70 dark:bg-black/60 p-5 sm:p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-md">
+      <div class="mt-8 max-w-lg mx-auto space-y-5 bg-white/70 dark:bg-black/60 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-zinc-800 shadow-lg">
         <div>
-          <label for="studentNameInput" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+          <label for="studentNameInput" class="block text-xs sm:text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
             Your Name <span class="text-rose-500">*</span>
           </label>
           <input 
             type="text" 
             id="studentNameInput" 
             placeholder="e.g., Omar, Sarah, Karim..." 
-            class="w-full px-4 py-2.5 sm:py-3 bg-slate-50 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium transition text-sm"
+            class="w-full px-4 py-3 bg-slate-50 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold transition text-base"
             maxlength="30"
             onkeydown="if(event.key === 'Enter') startQuiz()"
           />
-          <p id="nameError" class="text-xs text-rose-500 mt-1.5 hidden font-medium">Please enter your name to begin your quest!</p>
+          <p id="nameError" class="text-xs text-rose-500 mt-2 hidden font-bold">Please enter your name to begin!</p>
         </div>
 
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+          <label class="block text-xs sm:text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
             Choose Your Avatar
           </label>
-          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
-            <button type="button" onclick="selectAvatar('👷‍♂️', 'Civil Engineer')" class="avatar-opt p-2 rounded-xl border-2 border-indigo-500 bg-indigo-500/20 text-center transition hover:scale-105 shadow-sm" data-avatar="👷‍♂️">
-              <span class="text-2xl block">👷‍♂️</span>
-              <span class="text-[10px] font-semibold text-slate-600 dark:text-zinc-300 block mt-1 leading-tight">Civil</span>
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
+            <button type="button" onclick="selectAvatar('👷‍♂️', 'Civil Engineer')" class="avatar-opt p-2.5 rounded-2xl border-2 border-indigo-500 bg-indigo-500/20 text-center transition hover:scale-105 shadow-md" data-avatar="👷‍♂️">
+              <span class="text-3xl block">👷‍♂️</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-zinc-200 block mt-1 leading-tight">Civil</span>
             </button>
-            <button type="button" onclick="selectAvatar('👷‍♀️', 'Structural Specialist')" class="avatar-opt p-2 rounded-xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👷‍♀️">
-              <span class="text-2xl block">👷‍♀️</span>
-              <span class="text-[10px] font-semibold text-slate-600 dark:text-zinc-300 block mt-1 leading-tight">Structural</span>
+            <button type="button" onclick="selectAvatar('👷‍♀️', 'Structural Specialist')" class="avatar-opt p-2.5 rounded-2xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👷‍♀️">
+              <span class="text-3xl block">👷‍♀️</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-zinc-200 block mt-1 leading-tight">Structural</span>
             </button>
-            <button type="button" onclick="selectAvatar('👩‍🔬', 'Materials Scientist')" class="avatar-opt p-2 rounded-xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👩‍🔬">
-              <span class="text-2xl block">👩‍🔬</span>
-              <span class="text-[10px] font-semibold text-slate-600 dark:text-zinc-300 block mt-1 leading-tight">Scientist</span>
+            <button type="button" onclick="selectAvatar('👩‍🔬', 'Materials Scientist')" class="avatar-opt p-2.5 rounded-2xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👩‍🔬">
+              <span class="text-3xl block">👩‍🔬</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-zinc-200 block mt-1 leading-tight">Scientist</span>
             </button>
-            <button type="button" onclick="selectAvatar('👨‍💻', 'QA / QC Specialist')" class="avatar-opt p-2 rounded-xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👨‍💻">
-              <span class="text-2xl block">👨‍💻</span>
-              <span class="text-[10px] font-semibold text-slate-600 dark:text-zinc-300 block mt-1 leading-tight">QA / QC</span>
+            <button type="button" onclick="selectAvatar('👨‍💻', 'QA / QC Specialist')" class="avatar-opt p-2.5 rounded-2xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👨‍💻">
+              <span class="text-3xl block">👨‍💻</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-zinc-200 block mt-1 leading-tight">QA / QC</span>
             </button>
-            <button type="button" onclick="selectAvatar('🧑‍💼', 'Project Manager')" class="avatar-opt p-2 rounded-xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="🧑‍💼">
-              <span class="text-2xl block">🧑‍💼</span>
-              <span class="text-[10px] font-semibold text-slate-600 dark:text-zinc-300 block mt-1 leading-tight">Manager</span>
+            <button type="button" onclick="selectAvatar('🧑‍💼', 'Project Manager')" class="avatar-opt p-2.5 rounded-2xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="🧑‍💼">
+              <span class="text-3xl block">🧑‍💼</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-zinc-200 block mt-1 leading-tight">Manager</span>
             </button>
-            <button type="button" onclick="selectAvatar('👩‍🎓', 'Research Scholar')" class="avatar-opt p-2 rounded-xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👩‍🎓">
-              <span class="text-2xl block">👩‍🎓</span>
-              <span class="text-[10px] font-semibold text-slate-600 dark:text-zinc-300 block mt-1 leading-tight">Scholar</span>
+            <button type="button" onclick="selectAvatar('👩‍🎓', 'Research Scholar')" class="avatar-opt p-2.5 rounded-2xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105" data-avatar="👩‍🎓">
+              <span class="text-3xl block">👩‍🎓</span>
+              <span class="text-xs font-bold text-slate-700 dark:text-zinc-200 block mt-1 leading-tight">Scholar</span>
             </button>
           </div>
         </div>
 
-        <div class="p-3 bg-slate-100 dark:bg-zinc-900/80 rounded-xl border border-slate-200 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-300 space-y-1">
-          <div class="flex items-center gap-1.5 font-bold text-indigo-600 dark:text-indigo-400">
+        <div class="p-3.5 bg-slate-100 dark:bg-zinc-900/80 rounded-2xl border border-slate-200 dark:border-zinc-800 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 space-y-1.5">
+          <div class="flex items-center gap-2 font-bold text-indigo-600 dark:text-indigo-400">
             <span>💡</span> Fast Assessment Rules:
           </div>
-          <p>• <strong>40s non-renewable</strong> per question with warning alerts.</p>
-          <p>• Flag questions and jump back anytime without scrolling.</p>
-          <p>• Real-time score recording to the <strong>Dynamic Hall of Fame</strong>.</p>
+          <p>• <strong>30s strict timer</strong> per question. Auto-advances when time expires!</p>
+          <p>• Flag questions anytime and review them before finishing.</p>
+          <p>• Scores stream live to the <strong>Dynamic Hall of Fame</strong>.</p>
         </div>
 
         <button 
           onclick="startQuiz()" 
-          class="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/30 active:scale-[0.99] transition transform flex items-center justify-center gap-2 group">
+          class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-base tracking-wide shadow-lg shadow-blue-600/30 active:scale-[0.99] transition transform flex items-center justify-center gap-2 group">
           <span>Start Assessment</span>
-          <span class="group-hover:translate-x-1 transition">🚀</span>
+          <span class="group-hover:translate-x-1 transition text-lg">🚀</span>
         </button>
       </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!-- SCREEN 2: ACTIVE QUIZ INTERFACE & QUESTION NAVIGATOR     -->
-    <!-- ======================================================== -->
-    <div id="quizScreen" class="hidden space-y-3 sm:space-y-4">
+    <!-- SCREEN 2: ACTIVE QUIZ INTERFACE & QUESTION NAVIGATOR -->
+    <div id="quizScreen" class="hidden space-y-4">
       
-      <!-- Fixed Question Navigation Matrix (No Scrolling Needed) -->
-      <div class="glass-card rounded-2xl p-2.5 sm:p-3 shadow-xl border border-slate-200 dark:border-zinc-800 transition-all duration-300">
-        <div class="flex items-center justify-between mb-1.5 px-1">
-          <div class="flex items-center gap-1.5">
-            <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-zinc-400">Question Map:</span>
-            <span class="text-[10px] text-slate-400 dark:text-zinc-500 hidden sm:inline">(Tap to jump)</span>
+      <!-- Fixed Question Navigation Matrix (Zero Scrolling Needed) -->
+      <div class="glass-card rounded-2xl p-3 sm:p-4 shadow-xl border border-slate-200 dark:border-zinc-800 transition-all duration-300">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <div class="flex items-center gap-2">
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-zinc-400">Question Map:</span>
+            <span class="text-xs text-slate-400 dark:text-zinc-500 hidden sm:inline">(Tap to navigate)</span>
           </div>
-          <div class="flex items-center gap-2 text-[10px] font-semibold">
-            <span class="flex items-center gap-1 text-emerald-600 dark:text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Done</span>
-            <span class="flex items-center gap-1 text-amber-600 dark:text-amber-400"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Flagged</span>
-            <span class="flex items-center gap-1 text-indigo-600 dark:text-indigo-400"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Active</span>
+          <div class="flex items-center gap-3 text-xs font-bold">
+            <span class="flex items-center gap-1 text-emerald-600 dark:text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Done</span>
+            <span class="flex items-center gap-1 text-amber-600 dark:text-amber-400"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Flagged</span>
+            <span class="flex items-center gap-1 text-indigo-600 dark:text-indigo-400"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Active</span>
           </div>
         </div>
 
         <!-- 13 Compact Chips Grid -->
-        <div id="questionMatrixContainer" class="grid grid-cols-7 sm:grid-cols-13 gap-1 sm:gap-1.5">
+        <div id="questionMatrixContainer" class="grid grid-cols-7 sm:grid-cols-13 gap-1.5 sm:gap-2">
           <!-- Dynamically populated chips Q1 - Q13 -->
         </div>
       </div>
 
-      <!-- 40-Second Countdown Timer & Active Question HUD -->
-      <div class="glass-card rounded-2xl p-3.5 sm:p-4 shadow-xl relative overflow-hidden transition-all duration-300 border border-slate-200 dark:border-zinc-800" id="timerContainer">
+      <!-- 30-Second Countdown Timer & Active Question HUD -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 shadow-xl relative overflow-hidden transition-all duration-300 border border-slate-200 dark:border-zinc-800" id="timerContainer">
         <!-- Top Status Bar -->
-        <div class="flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">
-          <span class="flex items-center gap-1.5 truncate">
-            <span id="playerAvatarDisplay" class="text-base">👷‍♂️</span>
-            <span class="font-medium truncate max-w-[120px] sm:max-w-none">Engineer: <span id="playerNameDisplay" class="text-indigo-600 dark:text-indigo-400 font-bold">Engineer</span></span>
+        <div class="flex items-center justify-between text-sm sm:text-base font-bold text-slate-700 dark:text-slate-300 mb-3">
+          <span class="flex items-center gap-2 truncate">
+            <span id="playerAvatarDisplay" class="text-xl">👷‍♂️</span>
+            <span class="font-medium truncate max-w-[140px] sm:max-w-none">Engineer: <span id="playerNameDisplay" class="text-indigo-600 dark:text-indigo-400 font-extrabold">Engineer</span></span>
           </span>
 
           <!-- Question Flag Toggle Button -->
           <button 
             id="flagQuestionBtn" 
             onclick="toggleFlagCurrentQuestion()" 
-            class="px-2.5 py-1 rounded-lg border border-slate-300 dark:border-zinc-700 bg-slate-100 dark:bg-black/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center gap-1 transition active:scale-95 shadow-sm">
+            class="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-zinc-700 bg-slate-100 dark:bg-black/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-sm">
             <span id="flagIcon">🏳️</span>
             <span id="flagBtnText">Flag</span>
           </button>
 
-          <!-- 40s Countdown Timer Badge -->
-          <div class="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-black/80 border border-slate-300 dark:border-zinc-700 shadow-inner" id="timerBadge">
-            <span id="timerIcon" class="text-emerald-500 text-sm">⏱️</span>
-            <span class="text-slate-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-wider hidden sm:inline">Time:</span>
-            <span id="timerCountdownText" class="text-sm font-black font-mono text-emerald-600 dark:text-emerald-400">40s</span>
+          <!-- 30s Countdown Timer Badge -->
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-black/80 border border-slate-300 dark:border-zinc-700 shadow-inner" id="timerBadge">
+            <span id="timerIcon" class="text-emerald-500 text-base">⏱️</span>
+            <span class="text-slate-500 dark:text-zinc-400 text-xs font-bold uppercase tracking-wider hidden sm:inline">Timer:</span>
+            <span id="timerCountdownText" class="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">30s</span>
           </div>
         </div>
 
-        <!-- 40-Second Countdown Progress Bar -->
-        <div class="space-y-1">
-          <div class="flex justify-between items-center text-[10px] text-slate-500 dark:text-zinc-400 font-medium">
-            <span id="timerStatusLabel" class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
-              Remaining Time
+        <!-- 30-Second Countdown Progress Bar -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between items-center text-xs font-semibold text-slate-500 dark:text-zinc-400">
+            <span id="timerStatusLabel" class="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
+              Time Remaining
             </span>
-            <span id="timerSecondsFraction" class="font-mono text-slate-700 dark:text-zinc-300">40 / 40 sec</span>
+            <span id="timerSecondsFraction" class="font-mono text-slate-700 dark:text-zinc-300 text-xs sm:text-sm">30 / 30 sec</span>
           </div>
-          <div class="w-full h-2 bg-slate-200 dark:bg-black rounded-full p-0.5 border border-slate-300 dark:border-zinc-800 overflow-hidden shadow-inner">
+          <div class="w-full h-2.5 bg-slate-200 dark:bg-black rounded-full p-0.5 border border-slate-300 dark:border-zinc-800 overflow-hidden shadow-inner">
             <div id="timerBarFill" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-1000 ease-linear shadow-lg" style="width: 100%;"></div>
           </div>
         </div>
       </div>
 
       <!-- Question Card -->
-      <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-xl relative border border-slate-200 dark:border-zinc-800">
+      <div class="glass-card rounded-3xl p-5 sm:p-8 shadow-xl relative border border-slate-200 dark:border-zinc-800">
         <!-- Topic Tag & Type -->
-        <div class="flex items-center justify-between mb-3">
-          <span id="topicTag" class="text-[11px] sm:text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-700 dark:text-indigo-300">
-            Concept Check #1: The Big Picture
+        <div class="flex items-center justify-between mb-4">
+          <span id="topicTag" class="text-xs sm:text-sm font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-700 dark:text-indigo-300">
+            Concept Check #1: Material Selection
           </span>
           <div class="flex items-center gap-2">
-            <span id="flagIndicatorTag" class="hidden text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40">
+            <span id="flagIndicatorTag" class="hidden text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40">
               🚩 Flagged
             </span>
-            <span id="qTypeBadge" class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">
+            <span id="qTypeBadge" class="text-xs font-extrabold px-2.5 py-0.5 rounded-md bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">
               MCQ
             </span>
           </div>
         </div>
 
-        <!-- Question Text -->
-        <h3 id="questionText" class="text-sm sm:text-lg font-bold text-slate-900 dark:text-white leading-snug mb-4">
+        <!-- Question Text (Increased font size for effortless reading) -->
+        <h3 id="questionText" class="text-base sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-relaxed mb-6">
           A seaside hotel is planned in Alexandria. Which selection factor moves to the TOP of the list?
         </h3>
 
         <!-- Options Container -->
-        <div id="optionsContainer" class="space-y-2">
+        <div id="optionsContainer" class="space-y-3">
           <!-- Dynamically injected option buttons -->
         </div>
 
         <!-- Dynamic Encouragement Callout -->
-        <div id="encouragementBox" class="mt-4 pt-3 border-t border-slate-200 dark:border-zinc-800 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400">
-          <span id="encouragementText" class="italic text-slate-700 dark:text-zinc-300 text-[11px] sm:text-xs">"Read carefully and trust your engineering instincts!"</span>
-          <span id="timeStateNotice" class="text-[10px] text-slate-400">40s timer active</span>
+        <div id="encouragementBox" class="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800 flex items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
+          <span id="encouragementText" class="italic text-slate-700 dark:text-zinc-300 text-xs sm:text-sm">"Read carefully and trust your engineering instincts!"</span>
+          <span id="timeStateNotice" class="text-xs text-slate-400">30s timer active</span>
         </div>
       </div>
 
       <!-- Navigation & Action Bar -->
-      <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center justify-between gap-3">
         <button 
           id="prevBtn" 
           onclick="prevQuestion()" 
-          class="py-2 px-3.5 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 font-bold text-xs tracking-wide transition flex items-center gap-1 active:scale-95">
+          class="py-2.5 px-4 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm tracking-wide transition flex items-center gap-1.5 active:scale-95">
           <span>⬅️</span>
           <span>Previous</span>
         </button>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2.5">
           <button 
             id="finishEarlyBtn" 
             onclick="finishQuizConfirm()" 
-            class="py-2 px-3 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-rose-600 hover:text-white dark:hover:bg-rose-900/60 dark:hover:text-rose-200 text-slate-700 dark:text-slate-300 font-bold text-xs tracking-wide transition flex items-center gap-1 border border-slate-300 dark:border-zinc-700">
+            class="py-2.5 px-4 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-rose-600 hover:text-white dark:hover:bg-rose-900/60 dark:hover:text-rose-200 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm tracking-wide transition flex items-center gap-1.5 border border-slate-300 dark:border-zinc-700">
             <span>🏁 Finish</span>
           </button>
 
           <button 
             id="nextBtn" 
             onclick="nextQuestion()" 
-            class="py-2 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs tracking-wide shadow-md shadow-indigo-600/30 transition flex items-center gap-1 active:scale-95">
+            class="py-2.5 px-5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-indigo-600/30 transition flex items-center gap-1.5 active:scale-95">
             <span id="nextBtnLabel">Next</span>
             <span>➔</span>
           </button>
@@ -414,199 +403,189 @@
       </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!-- SCREEN 3: RESULTS, PERF REPORT & GIFTS                   -->
-    <!-- ======================================================== -->
+    <!-- SCREEN 3: RESULTS, PERF REPORT & GIFTS -->
     <div id="resultsScreen" class="hidden space-y-6 my-2 sm:my-4">
       
       <!-- Main Results Hero Card -->
-      <div class="glass-card rounded-3xl p-5 sm:p-9 shadow-2xl relative overflow-hidden border border-slate-200 dark:border-zinc-800 text-center">
-        <div class="space-y-3 max-w-xl mx-auto">
-          <!-- Dynamic Personalized Egyptian Cheer -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border-2 border-amber-500/50 text-amber-700 dark:text-amber-300 text-base sm:text-2xl font-black shadow-md" dir="rtl">
+      <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden border border-slate-200 dark:border-zinc-800 text-center">
+        <div class="space-y-4 max-w-xl mx-auto">
+          <!-- Personalized Egyptian Cheer (Pure visual banner, no AI apology/speech) -->
+          <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border-2 border-amber-500/50 text-amber-700 dark:text-amber-300 text-lg sm:text-2xl font-black shadow-md" dir="rtl">
             <span id="personalizedCheerBanner">🎉 الله ينور عليك يا هندسة يا جامد! 👏</span>
           </div>
 
-          <!-- Humorous AI Apology Container (Appears after 2-second stop) -->
-          <div id="aiApologyContainer" class="hidden transition-all duration-700 max-w-lg mx-auto">
-            <div class="p-3 rounded-2xl bg-indigo-500/10 dark:bg-indigo-950/40 border border-indigo-500/30 text-indigo-700 dark:text-indigo-300 text-xs sm:text-sm font-bold shadow-inner" dir="rtl">
-              <span>😅 سامحني.. العربي بتاعي بعافية حبتين عشان أنا ذكاء اصطناعي أجنبي 🤖</span>
-            </div>
-          </div>
-
           <!-- Cloud Recording Success Banner -->
-          <div id="cloudRecordedBanner" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-xs font-semibold">
-            <span>✅ Score recorded dynamically to Class Leaderboard!</span>
+          <div id="cloudRecordedBanner" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-semibold">
+            <span>✅ Score recorded to Class Leaderboard!</span>
           </div>
 
-          <div class="inline-block p-3 rounded-2xl bg-gradient-to-tr from-slate-100 to-slate-200 dark:from-zinc-900 dark:to-black border border-slate-300 dark:border-zinc-800 shadow-lg text-4xl mt-1">
+          <div class="inline-block p-4 rounded-2xl bg-gradient-to-tr from-slate-100 to-slate-200 dark:from-zinc-900 dark:to-black border border-slate-300 dark:border-zinc-800 shadow-lg text-5xl mt-1">
             <span id="finalRankEmoji">🏆</span>
           </div>
 
-          <h2 class="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
             Quiz Completed, <span id="resultPlayerName" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-emerald-300">Engineer</span>!
           </h2>
-          <p id="rankTitle" class="text-sm sm:text-base font-bold text-indigo-600 dark:text-blue-400">
+          <p id="rankTitle" class="text-base sm:text-lg font-bold text-indigo-600 dark:text-blue-400">
             Chief Materials Architect
           </p>
         </div>
 
         <!-- Scoreboard Summary Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 mt-6">
-          <div class="bg-white/80 dark:bg-zinc-900/70 p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
-            <span class="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Score</span>
-            <div class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1">
-              <span id="finalScoreVal">0</span><span class="text-xs text-slate-400">/13</span>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-7">
+          <div class="bg-white/80 dark:bg-zinc-900/70 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
+            <span class="text-xs font-extrabold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Score</span>
+            <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
+              <span id="finalScoreVal">0</span><span class="text-sm text-slate-400">/13</span>
             </div>
-            <span id="scorePercentage" class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">0%</span>
+            <span id="scorePercentage" class="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">0%</span>
           </div>
 
-          <div class="bg-white/80 dark:bg-zinc-900/70 p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
-            <span class="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Total XP</span>
-            <div id="finalXpVal" class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1">0</div>
-            <span class="text-[11px] text-slate-400">Earned</span>
+          <div class="bg-white/80 dark:bg-zinc-900/70 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
+            <span class="text-xs font-extrabold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Total XP</span>
+            <div id="finalXpVal" class="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-1">0</div>
+            <span class="text-xs text-slate-400">Earned</span>
           </div>
 
-          <div class="bg-white/80 dark:bg-zinc-900/70 p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
-            <span class="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Max Streak</span>
-            <div class="text-xl sm:text-2xl font-black text-amber-500 dark:text-amber-400 mt-1 flex items-center justify-center gap-1">
+          <div class="bg-white/80 dark:bg-zinc-900/70 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
+            <span class="text-xs font-extrabold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Max Streak</span>
+            <div class="text-2xl sm:text-3xl font-black text-amber-500 dark:text-amber-400 mt-1 flex items-center justify-center gap-1">
               <span>🔥</span> <span id="finalStreakVal">0</span>
             </div>
-            <span class="text-[11px] text-slate-400">In a row</span>
+            <span class="text-xs text-slate-400">In a row</span>
           </div>
 
-          <div class="bg-white/80 dark:bg-zinc-900/70 p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
-            <span class="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Tier</span>
-            <div id="masteryLevel" class="text-xs sm:text-sm font-black text-indigo-600 dark:text-indigo-300 mt-2 truncate">
+          <div class="bg-white/80 dark:bg-zinc-900/70 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 text-center shadow-sm">
+            <span class="text-xs font-extrabold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">Mastery Tier</span>
+            <div id="masteryLevel" class="text-sm sm:text-base font-black text-indigo-600 dark:text-indigo-300 mt-2 truncate">
               Master
             </div>
-            <span class="text-[10px] text-slate-400">Mastery</span>
+            <span class="text-xs text-slate-400">Level</span>
           </div>
         </div>
 
         <!-- Quick Action Buttons on Results Hero -->
-        <div class="mt-6 flex flex-wrap gap-2.5 justify-center">
-          <!-- Executable Student Diagnostic Report Download Button -->
+        <div class="mt-7 flex flex-wrap gap-3 justify-center">
           <button 
             onclick="downloadStudentReport()" 
             id="downloadReportBtn"
-            class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-600/30 transition flex items-center gap-1.5 active:scale-95">
+            class="py-3 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-md shadow-emerald-600/30 transition flex items-center gap-2 active:scale-95">
             <span>📄 Download My Diagnostic Report</span>
           </button>
           
           <button 
             onclick="openDashboardModal('scoreboard')" 
-            class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-xs shadow-md transition flex items-center gap-1.5 active:scale-95">
+            class="py-3 px-5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-sm shadow-md transition flex items-center gap-2 active:scale-95">
             <span>🏆 View Dynamic Hall of Fame</span>
           </button>
           
           <button 
             onclick="handleInstructorAccessClick()" 
-            class="py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-md transition flex items-center gap-1.5 active:scale-95">
+            class="py-3 px-5 rounded-2xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm shadow-md transition flex items-center gap-2 active:scale-95">
             <span>🔑 Instructor Dashboard</span>
           </button>
 
           <button 
             onclick="restartQuiz()" 
-            class="py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs tracking-wide shadow-md transition flex items-center gap-1.5 active:scale-95">
+            class="py-3 px-5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm tracking-wide shadow-md transition flex items-center gap-2 active:scale-95">
             <span>🔄 Retake Test</span>
           </button>
         </div>
 
         <!-- INTERACTIVE GIFTS SECTION -->
         <div class="mt-8 pt-6 border-t border-slate-200 dark:border-zinc-800 text-left">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
             <div>
-              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <h3 class="text-base sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
                 <span>🎁</span> Personalized Engineer Gifts
               </h3>
-              <p class="text-xs text-slate-500 dark:text-zinc-400">
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
                 Unlock your tailored compliment, strategic guidance, and engineering quote.
               </p>
             </div>
             <button 
               id="unlockAllGiftsBtn"
               onclick="unlockAllGifts()" 
-              class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-xs shadow transition active:scale-95 flex items-center justify-center gap-1.5 shrink-0">
+              class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-xs sm:text-sm shadow transition active:scale-95 flex items-center justify-center gap-1.5 shrink-0">
               <span>✨ Unlock All Gifts</span>
             </button>
           </div>
 
           <!-- Gifts Grid / Cards -->
-          <div class="space-y-3">
+          <div class="space-y-3.5">
             <!-- Gift 1: Compliment -->
-            <div id="giftCardCompliment" class="p-4 rounded-xl border transition-all duration-300 bg-slate-100/80 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
+            <div id="giftCardCompliment" class="p-4 sm:p-5 rounded-2xl border transition-all duration-300 bg-slate-100/80 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
               <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg shrink-0">👏</div>
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">👏</div>
                   <div>
-                    <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Gift #1: Tailored Compliment</h4>
-                    <p class="text-[11px] text-slate-500 dark:text-zinc-400">Prepared specially for your performance</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">Gift #1: Tailored Compliment</h4>
+                    <p class="text-xs text-slate-500 dark:text-zinc-400">Prepared specially for your performance</p>
                   </div>
                 </div>
-                <button id="btnUnlockCompliment" onclick="revealGift('compliment')" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow transition active:scale-95">
+                <button id="btnUnlockCompliment" onclick="revealGift('compliment')" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold shadow transition active:scale-95">
                   🎁 Open
                 </button>
               </div>
-              <div id="contentCompliment" class="hidden mt-3 pt-2.5 border-t border-slate-200 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium"></div>
+              <div id="contentCompliment" class="hidden mt-3 pt-3 border-t border-slate-200 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-semibold"></div>
             </div>
 
             <!-- Gift 2: Strategic Advice -->
-            <div id="giftCardAdvice" class="p-4 rounded-xl border transition-all duration-300 bg-slate-100/80 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
+            <div id="giftCardAdvice" class="p-4 sm:p-5 rounded-2xl border transition-all duration-300 bg-slate-100/80 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
               <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg shrink-0">🧭</div>
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">🧭</div>
                   <div>
-                    <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Gift #2: Strategic Engineering Advice</h4>
-                    <p class="text-[11px] text-slate-500 dark:text-zinc-400">Actionable guidance based on your quiz answers</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">Gift #2: Strategic Engineering Advice</h4>
+                    <p class="text-xs text-slate-500 dark:text-zinc-400">Actionable guidance based on your quiz answers</p>
                   </div>
                 </div>
-                <button id="btnUnlockAdvice" onclick="revealGift('advice')" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold shadow transition active:scale-95">
+                <button id="btnUnlockAdvice" onclick="revealGift('advice')" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs sm:text-sm font-bold shadow transition active:scale-95">
                   🎁 Open
                 </button>
               </div>
-              <div id="contentAdvice" class="hidden mt-3 pt-2.5 border-t border-slate-200 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium"></div>
+              <div id="contentAdvice" class="hidden mt-3 pt-3 border-t border-slate-200 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-semibold"></div>
             </div>
 
             <!-- Gift 3: Quote -->
-            <div id="giftCardQuote" class="p-4 rounded-xl border transition-all duration-300 bg-slate-100/80 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
+            <div id="giftCardQuote" class="p-4 sm:p-5 rounded-2xl border transition-all duration-300 bg-slate-100/80 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
               <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg shrink-0">📜</div>
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">📜</div>
                   <div>
-                    <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Gift #3: Words of Wisdom</h4>
-                    <p class="text-[11px] text-slate-500 dark:text-zinc-400">Inspiring architectural engineering quote</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">Gift #3: Words of Wisdom</h4>
+                    <p class="text-xs text-slate-500 dark:text-zinc-400">Inspiring engineering principle</p>
                   </div>
                 </div>
-                <button id="btnUnlockQuote" onclick="revealGift('quote')" class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow transition active:scale-95">
+                <button id="btnUnlockQuote" onclick="revealGift('quote')" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs sm:text-sm font-bold shadow transition active:scale-95">
                   🎁 Open
                 </button>
               </div>
-              <div id="contentQuote" class="hidden mt-3 pt-2.5 border-t border-slate-200 dark:border-zinc-800 text-xs sm:text-sm italic text-slate-700 dark:text-slate-200 leading-relaxed"></div>
+              <div id="contentQuote" class="hidden mt-3 pt-3 border-t border-slate-200 dark:border-zinc-800 text-xs sm:text-sm italic text-slate-700 dark:text-slate-200 leading-relaxed"></div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- COMPLETE SOLUTIONS & DIAGNOSTIC BREAKDOWN ACCORDION -->
-      <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-xl space-y-4">
-        <div class="border-b border-slate-200 dark:border-zinc-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+      <div class="glass-card rounded-3xl p-5 sm:p-7 shadow-xl space-y-4">
+        <div class="border-b border-slate-200 dark:border-zinc-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <h3 class="text-base sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>📋</span> Complete Solutions & Rationales
             </h3>
-            <p class="text-xs text-slate-500 dark:text-zinc-400">
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
               Full answers, correct principles, and failure mode mechanics.
             </p>
           </div>
-          <div class="flex items-center gap-2 text-xs">
-            <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-semibold">Correct</span>
-            <span class="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/30 font-semibold">Needs Review</span>
+          <div class="flex items-center gap-2 text-xs font-bold">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">Correct</span>
+            <span class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/30">Needs Review</span>
           </div>
         </div>
 
         <!-- Solutions List Container -->
-        <div id="solutionsList" class="space-y-3">
+        <div id="solutionsList" class="space-y-3.5">
           <!-- Injected dynamically -->
         </div>
       </div>
@@ -614,88 +593,86 @@
 
   </main>
 
-  <!-- ======================================================== -->
-  <!-- MODAL 1: DYNAMIC LEADERBOARD & QUESTION ANALYTICS        -->
-  <!-- ======================================================== -->
-  <div id="dashboardModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 hidden">
-    <div class="glass-card rounded-3xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-800 shadow-2xl">
+  <!-- MODAL 1: DYNAMIC LEADERBOARD & DATA ANALYST QUESTION ANALYTICS -->
+  <div id="dashboardModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 hidden">
+    <div class="glass-card rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden border border-slate-200 dark:border-zinc-800 shadow-2xl">
       <!-- Modal Header -->
       <div class="p-4 sm:p-5 border-b border-slate-200 dark:border-zinc-800 flex items-center justify-between gap-2 bg-white/50 dark:bg-zinc-900/50">
-        <div class="flex items-center space-x-2.5">
-          <div class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-amber-500/30">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-amber-500/30">
             🏆
           </div>
           <div>
             <h3 class="text-sm sm:text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-              <span>Class Hall of Fame & Live Analytics</span>
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" title="Live Synced"></span>
-              <span id="instructorUnlockedStatusBadge" class="hidden text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300 font-bold border border-purple-500/30">
-                🎓 Instructor Mode (Verified)
+              <span>Class Analytics & Live Hall of Fame</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" title="Live Synced"></span>
+              <span id="instructorUnlockedStatusBadge" class="hidden text-xs px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300 font-bold border border-purple-500/30">
+                🎓 Instructor Mode
               </span>
             </h3>
-            <p class="text-[11px] text-slate-500 dark:text-zinc-400">Live roster, session analytics, and item-response breakdown</p>
+            <p class="text-xs text-slate-500 dark:text-zinc-400">Executive metrics, cohort distribution, and item response charts</p>
           </div>
         </div>
-        <button onclick="closeDashboardModal()" class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 flex items-center justify-center text-sm font-bold transition">
+        <button onclick="closeDashboardModal()" class="w-8 h-8 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 flex items-center justify-center text-sm font-bold transition">
           ✕
         </button>
       </div>
 
       <!-- Tabs Bar -->
-      <div class="flex flex-wrap border-b border-slate-200 dark:border-zinc-800 px-4 bg-slate-100/50 dark:bg-black/40 text-xs font-bold gap-1 sm:gap-2">
-        <button id="tabBtnScoreboard" onclick="switchDashboardTab('scoreboard')" class="py-3 px-3 sm:px-4 border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 flex items-center gap-1.5 transition">
+      <div class="flex flex-wrap border-b border-slate-200 dark:border-zinc-800 px-4 bg-slate-100/50 dark:bg-black/40 text-xs sm:text-sm font-bold gap-2">
+        <button id="tabBtnScoreboard" onclick="switchDashboardTab('scoreboard')" class="py-3 px-4 border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 flex items-center gap-1.5 transition">
           <span>🏅 Hall of Fame</span>
-          <span id="tabScoreboardCount" class="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400">0</span>
+          <span id="tabScoreboardCount" class="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400">0</span>
         </button>
-        <button id="tabBtnAnalytics" onclick="switchDashboardTab('analytics')" class="py-3 px-3 sm:px-4 border-b-2 border-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1.5 transition">
-          <span>📊 Overall Question Mastery</span>
+        <button id="tabBtnAnalytics" onclick="switchDashboardTab('analytics')" class="py-3 px-4 border-b-2 border-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1.5 transition">
+          <span>📊 Question Accuracy Chart</span>
         </button>
-        <button id="tabBtnSingleQuestion" onclick="switchDashboardTab('singleQuestion')" class="py-3 px-3 sm:px-4 border-b-2 border-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1.5 transition">
-          <span>🔍 Single-Question Deep Dive</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-purple-500/20 text-purple-600 dark:text-purple-300">Instructor</span>
+        <button id="tabBtnSingleQuestion" onclick="switchDashboardTab('singleQuestion')" class="py-3 px-4 border-b-2 border-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1.5 transition">
+          <span>🔍 Single-Question Focus</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-600 dark:text-purple-300">Instructor</span>
         </button>
       </div>
 
       <!-- Modal Content Body -->
-      <div class="flex-grow overflow-y-auto p-4 sm:p-6 space-y-5">
+      <div class="flex-grow overflow-y-auto p-4 sm:p-6 space-y-6">
         
         <!-- VIEW 1: SCOREBOARD & PODIUM -->
         <div id="viewScoreboard" class="space-y-6">
           <!-- Top 3 Podium Cards -->
-          <div id="podiumContainer" class="grid grid-cols-3 gap-2 sm:gap-4 items-end pt-4 pb-2">
+          <div id="podiumContainer" class="grid grid-cols-3 gap-2.5 sm:gap-4 items-end pt-3 pb-2">
             <!-- Dynamically populated 2nd, 1st, 3rd podium places -->
           </div>
 
           <!-- Scoreboard Table Controls -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
             <div class="flex items-center gap-2">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">All Participants</span>
-              <span id="totalStudentsCount" class="text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 font-bold">0 records</span>
+              <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">Roster & Records</span>
+              <span id="totalStudentsCount" class="text-xs px-2.5 py-1 rounded-full bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 font-bold">0 records</span>
             </div>
-            <div class="flex flex-wrap items-center gap-2">
-              <!-- Instructor Full Structured CSV Button -->
-              <button onclick="handleStructuredCsvExportClick()" class="px-3 py-1.5 rounded-xl bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs flex items-center gap-1.5 shadow transition active:scale-95" title="Export full granular CSV with every question answer">
-                <span>📥 Export Structured CSV (Instructor)</span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <!-- Concise Clean CSV Export Button -->
+              <button onclick="handleStructuredCsvExportClick()" class="px-3.5 py-2 rounded-xl bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow transition active:scale-95" title="Export clean structured CSV ready for Excel pivot charts">
+                <span>📥 Export Analytics CSV</span>
               </button>
-              <button onclick="refreshDashboardData()" class="px-2.5 py-1.5 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 font-bold text-xs flex items-center gap-1 transition">
+              <button onclick="refreshDashboardData()" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition">
                 <span>🔄 Sync</span>
               </button>
             </div>
           </div>
 
           <!-- Full Table -->
-          <div class="rounded-xl border border-slate-200 dark:border-zinc-800 overflow-hidden shadow-sm">
+          <div class="rounded-2xl border border-slate-200 dark:border-zinc-800 overflow-hidden shadow-sm">
             <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
-                <thead class="bg-slate-100 dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400 uppercase font-extrabold text-[10px]">
+              <table class="w-full text-left text-xs sm:text-sm">
+                <thead class="bg-slate-100 dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400 uppercase font-black text-[11px]">
                   <tr>
-                    <th class="py-2.5 px-3">Rank</th>
-                    <th class="py-2.5 px-3">Engineer</th>
-                    <th class="py-2.5 px-3 text-center">Score</th>
-                    <th class="py-2.5 px-3 text-center">Accuracy</th>
-                    <th class="py-2.5 px-3 text-center">Total XP</th>
-                    <th class="py-2.5 px-3 text-center">Streak</th>
-                    <th class="py-2.5 px-3 text-right">Time</th>
+                    <th class="py-3 px-3.5">Rank</th>
+                    <th class="py-3 px-3.5">Engineer</th>
+                    <th class="py-3 px-3.5 text-center">Score</th>
+                    <th class="py-3 px-3.5 text-center">Accuracy</th>
+                    <th class="py-3 px-3.5 text-center">XP</th>
+                    <th class="py-3 px-3.5 text-center">Streak</th>
+                    <th class="py-3 px-3.5 text-right">Time</th>
                   </tr>
                 </thead>
                 <tbody id="scoreboardTableBody" class="divide-y divide-slate-200 dark:divide-zinc-800/80 bg-white/40 dark:bg-black/40">
@@ -706,69 +683,77 @@
           </div>
         </div>
 
-        <!-- VIEW 2: KAHOOT / QUIZIZZ QUESTION OVERVIEW -->
-        <div id="viewAnalytics" class="hidden space-y-4">
-          <!-- Overview Stats Bar -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3 rounded-xl border border-slate-200 dark:border-zinc-800">
-              <span class="text-[10px] text-slate-500 uppercase font-bold block">Class Average</span>
-              <span id="classAverageScore" class="text-base font-black text-indigo-600 dark:text-indigo-400">0%</span>
+        <!-- VIEW 2: EXECUTIVE DATA ANALYST BAR CHARTS & ACCURACY -->
+        <div id="viewAnalytics" class="hidden space-y-5">
+          <!-- Executive KPI Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800">
+              <span class="text-[11px] text-slate-500 uppercase font-extrabold block">Class Average</span>
+              <span id="classAverageScore" class="text-xl sm:text-2xl font-black text-indigo-600 dark:text-indigo-400">0%</span>
             </div>
-            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3 rounded-xl border border-slate-200 dark:border-zinc-800">
-              <span class="text-[10px] text-slate-500 uppercase font-bold block">Total Attempts</span>
-              <span id="classTotalAttempts" class="text-base font-black text-slate-800 dark:text-zinc-200">0</span>
+            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800">
+              <span class="text-[11px] text-slate-500 uppercase font-extrabold block">Submissions</span>
+              <span id="classTotalAttempts" class="text-xl sm:text-2xl font-black text-slate-800 dark:text-zinc-200">0</span>
             </div>
-            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3 rounded-xl border border-slate-200 dark:border-zinc-800">
-              <span class="text-[10px] text-slate-500 uppercase font-bold block">Hardest Concept</span>
-              <span id="hardestQuestionLabel" class="text-xs font-bold text-rose-500 truncate block">N/A</span>
+            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800">
+              <span class="text-[11px] text-slate-500 uppercase font-extrabold block">Top Gap Concept</span>
+              <span id="hardestQuestionLabel" class="text-sm font-extrabold text-rose-500 truncate block">N/A</span>
             </div>
-            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3 rounded-xl border border-slate-200 dark:border-zinc-800">
-              <span class="text-[10px] text-slate-500 uppercase font-bold block">Highest Mastery</span>
-              <span id="easiestQuestionLabel" class="text-xs font-bold text-emerald-500 truncate block">N/A</span>
+            <div class="bg-slate-100 dark:bg-zinc-900/80 p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800">
+              <span class="text-[11px] text-slate-500 uppercase font-extrabold block">Top Mastery Concept</span>
+              <span id="easiestQuestionLabel" class="text-sm font-extrabold text-emerald-500 truncate block">N/A</span>
             </div>
           </div>
 
-          <div class="flex items-center justify-between">
-            <div class="text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">
-              Per-Question Accuracy & Tough Concept Detector:
+          <!-- High Impact Bar Chart Container -->
+          <div class="glass-card p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-zinc-800 pb-3">
+              <div>
+                <h4 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                  <span>📊</span> Question Accuracy Distribution
+                </h4>
+                <p class="text-xs text-slate-500 dark:text-zinc-400">Concise comparison across all 13 diagnostic benchmarks</p>
+              </div>
+              <div class="flex items-center gap-3 text-xs font-bold">
+                <span class="flex items-center gap-1 text-emerald-600 dark:text-emerald-400"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></span> ≥70% (Mastered)</span>
+                <span class="flex items-center gap-1 text-amber-600 dark:text-amber-400"><span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span> 50-69% (Review)</span>
+                <span class="flex items-center gap-1 text-rose-600 dark:text-rose-400"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500"></span> &lt;50% (Intervention)</span>
+              </div>
             </div>
-            <button onclick="handleStructuredCsvExportClick()" class="px-2.5 py-1 rounded-lg bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs flex items-center gap-1 shadow">
-              <span>📥 Export All Data (CSV)</span>
-            </button>
-          </div>
 
-          <!-- Question-by-Question List -->
-          <div id="questionAnalyticsContainer" class="space-y-3">
-            <!-- Dynamically populated question analysis cards -->
+            <!-- Dynamic Graphical Bar Chart Grid -->
+            <div id="analyticsBarChart" class="space-y-2.5">
+              <!-- Injected dynamically with clean bars and short titles -->
+            </div>
           </div>
         </div>
 
-        <!-- VIEW 3: INSTRUCTOR SINGLE-QUESTION DEEP DIVE -->
+        <!-- VIEW 3: INSTRUCTOR SINGLE-QUESTION FOCUS -->
         <div id="viewSingleQuestion" class="hidden space-y-4">
-          <!-- Passcode verification shield if not unlocked -->
-          <div id="singleQuestionLockNotice" class="hidden p-6 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-center space-y-3">
+          <!-- Passcode verification notice -->
+          <div id="singleQuestionLockNotice" class="hidden p-7 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-center space-y-3">
             <div class="text-3xl">🔒</div>
-            <h4 class="text-base font-bold text-slate-900 dark:text-white">Instructor Access Required</h4>
-            <p class="text-xs text-slate-600 dark:text-zinc-400 max-w-md mx-auto">
-              Single-question diagnostic breakdown and student choice distributions are reserved for instructors. Please enter the passcode to proceed.
+            <h4 class="text-base font-bold text-slate-900 dark:text-white">Instructor Authorization Required</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 max-w-md mx-auto">
+              Single-question diagnostic breakdown and student option distributions are reserved for instructors.
             </p>
-            <button onclick="openInstructorAuthModal()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow">
+            <button onclick="openInstructorAuthModal()" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm shadow">
               🔑 Enter Instructor Passcode
             </button>
           </div>
 
-          <!-- Unlocked Single Question Content -->
+          <!-- Unlocked Content -->
           <div id="singleQuestionContent" class="space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-slate-100 dark:bg-zinc-900 p-3 rounded-2xl border border-slate-200 dark:border-zinc-800">
-              <label class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-100 dark:bg-zinc-900 p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800">
+              <label class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
                 <span>Select Question:</span>
-                <select id="singleQuestionSelector" onchange="renderSelectedQuestionDeepDive(this.value)" class="px-3 py-1.5 rounded-lg bg-white dark:bg-black border border-slate-300 dark:border-zinc-700 font-bold text-xs text-slate-900 dark:text-white">
-                  <!-- Populated dynamically Q1 to Q13 -->
+                <select id="singleQuestionSelector" onchange="renderSelectedQuestionDeepDive(this.value)" class="px-3.5 py-2 rounded-xl bg-white dark:bg-black border border-slate-300 dark:border-zinc-700 font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
+                  <!-- Populated dynamically Q1 to Q13 with short titles -->
                 </select>
               </label>
 
-              <button onclick="handleStructuredCsvExportClick()" class="px-3 py-1.5 rounded-xl bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs flex items-center gap-1.5 shadow">
-                <span>📥 Export All Structured CSV</span>
+              <button onclick="handleStructuredCsvExportClick()" class="px-4 py-2 rounded-xl bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow">
+                <span>📥 Export Analytics CSV</span>
               </button>
             </div>
 
@@ -783,23 +768,21 @@
     </div>
   </div>
 
-  <!-- ======================================================== -->
-  <!-- MODAL 3: INSTRUCTOR PASSCODE AUTH MODAL                  -->
-  <!-- ======================================================== -->
-  <div id="instructorAuthModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="glass-card rounded-3xl p-6 sm:p-7 max-w-sm w-full text-center relative border border-slate-200 dark:border-zinc-800 shadow-2xl space-y-4">
-      <button onclick="closeInstructorAuthModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-sm font-bold transition">
+  <!-- MODAL 2: INSTRUCTOR PASSCODE AUTH MODAL -->
+  <div id="instructorAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center relative border border-slate-200 dark:border-zinc-800 shadow-2xl space-y-4">
+      <button onclick="closeInstructorAuthModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 flex items-center justify-center text-sm font-bold transition">
         ✕
       </button>
 
-      <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-600 dark:text-purple-400 mx-auto flex items-center justify-center text-2xl shadow-inner">
+      <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-600 dark:text-purple-400 mx-auto flex items-center justify-center text-2xl">
         🔑
       </div>
 
       <div>
         <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white">Instructor Authorization</h3>
         <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1">
-          Enter instructor passcode to view live per-question analytics and export structured student data.
+          Enter instructor passcode to view live per-question analytics and export data.
         </p>
       </div>
 
@@ -809,16 +792,16 @@
             type="password" 
             id="instructorPasscodeInput" 
             placeholder="Enter instructor passcode" 
-            class="w-full px-4 py-2.5 text-center tracking-widest bg-slate-100 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 rounded-xl text-slate-900 dark:text-white text-sm font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-3 text-center tracking-widest bg-slate-100 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 rounded-xl text-slate-900 dark:text-white text-base font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
             maxlength="20"
             onkeydown="if(event.key === 'Enter') submitInstructorPasscode()"
           />
-          <p id="instructorPasscodeError" class="text-xs text-rose-500 mt-1.5 hidden font-semibold">Incorrect passcode. Please try again.</p>
+          <p id="instructorPasscodeError" class="text-xs text-rose-500 mt-2 hidden font-bold">Incorrect passcode. Please try again.</p>
         </div>
 
         <button 
           onclick="submitInstructorPasscode()" 
-          class="w-full py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-md transition active:scale-95 flex items-center justify-center gap-1.5">
+          class="w-full py-3 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm shadow-md transition active:scale-95 flex items-center justify-center gap-2">
           <span>Unlock Instructor Dashboard</span>
           <span>➔</span>
         </button>
@@ -826,12 +809,10 @@
     </div>
   </div>
 
-  <!-- ======================================================== -->
-  <!-- MODAL 2: QR CODE JOIN MODAL                              -->
-  <!-- ======================================================== -->
-  <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+  <!-- MODAL 3: QR CODE JOIN MODAL -->
+  <div id="qrModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
     <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center relative border border-slate-200 dark:border-zinc-800 shadow-2xl space-y-4">
-      <button onclick="closeQrModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-sm font-bold transition">
+      <button onclick="closeQrModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 flex items-center justify-center text-sm font-bold transition">
         ✕
       </button>
 
@@ -842,7 +823,7 @@
       <div>
         <h3 class="text-lg font-black text-slate-900 dark:text-white">Scan to Join Quiz</h3>
         <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1">
-          Open your phone's camera to join this diagnostic test instantly.
+          Open your phone's camera to join this assessment instantly.
         </p>
       </div>
 
@@ -853,10 +834,10 @@
 
       <!-- Verified Accessible Link Controls -->
       <div class="space-y-2 pt-1 text-left">
-        <label for="quizShareUrlInput" class="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">
-          Session Link (Your live link):
+        <label for="quizShareUrlInput" class="text-[11px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">
+          Session Link:
         </label>
-        <div class="flex items-center gap-1.5">
+        <div class="flex items-center gap-2">
           <input 
             type="text" 
             id="quizShareUrlInput" 
@@ -868,12 +849,12 @@
           <button 
             onclick="copyQuizLink()" 
             id="copyLinkBtn"
-            class="flex-1 py-2 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow transition active:scale-95 flex items-center justify-center gap-1.5">
+            class="flex-1 py-2.5 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm shadow transition active:scale-95 flex items-center justify-center gap-1.5">
             <span>📋 Copy Link</span>
           </button>
           <button 
             onclick="resetToCurrentUrl()" 
-            class="py-2 px-3 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition"
+            class="py-2.5 px-3 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm transition"
             title="Reset link to current window URL">
             <span>🔄 Auto</span>
           </button>
@@ -883,7 +864,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200 dark:border-zinc-800 py-3 text-center text-xs text-slate-500 transition-colors duration-300">
+  <footer class="border-t border-slate-200 dark:border-zinc-800 py-3 text-center text-xs sm:text-sm text-slate-500 transition-colors duration-300">
     Construction and Building Engineering Materials Diagnostic Assessment • Fit-for-Purpose Design
   </footer>
 
@@ -897,7 +878,7 @@
     window.cloudDb = null;
     window.cloudAuth = null;
 
-    // Mohammed's Live Firebase Configuration
+    // Live Firebase Configuration
     const firebaseConfig = {
       apiKey: "AIzaSyA6mIg-3AHr7UYPP8gG4-hg8BE4zYE0Ui4",
       authDomain: "materials-quiz.firebaseapp.com",
@@ -913,16 +894,14 @@
       window.cloudDb = getFirestore(app);
       window.cloudAuth = getAuth(app);
 
-      // Attempt anonymous auth quietly
       (async () => {
         try {
           await signInAnonymously(window.cloudAuth);
         } catch (authErr) {
-          console.warn("Firebase Auth Notice (Anonymous sign-in can be toggled on in Firebase Console):", authErr);
+          console.warn("Firebase Auth Notice:", authErr);
         }
       })();
 
-      // Start listening to the shared submissions collection
       listenToSubmissions();
     } catch (e) {
       console.warn("Firebase initialization notice:", e);
@@ -945,14 +924,13 @@
             window.updateDashboardUI();
           }
         }, (error) => {
-          console.warn("Live leaderboard sync notice (checking permissions/offline):", error);
+          console.warn("Leaderboard sync notice:", error);
         });
       } catch (err) {
         console.warn("Error setting up Firestore listener:", err);
       }
     }
 
-    // Register active player session immediately when entering name and starting
     window.registerPlayerSession = async function(sessionData) {
       const uid = window.cloudAuth?.currentUser?.uid || ('guest_' + Math.random().toString(36).substring(2, 9));
       if (!window.cloudDb) {
@@ -964,13 +942,9 @@
       }
       try {
         const subCol = collection(window.cloudDb, 'submissions');
-        const docRef = await addDoc(subCol, {
-          ...sessionData,
-          userId: uid
-        });
+        const docRef = await addDoc(subCol, { ...sessionData, userId: uid });
         return docRef.id;
       } catch (err) {
-        console.warn("Could not register session to cloud, using local session:", err);
         const tempId = 'local_' + Date.now();
         window.allSubmissions.push({ id: tempId, ...sessionData, userId: uid });
         if (typeof window.updateAllPlayerCounts === 'function') window.updateAllPlayerCounts();
@@ -979,7 +953,6 @@
       }
     };
 
-    // Update existing session or record final submission to cloud
     window.saveSubmissionToCloud = async function(submissionData) {
       const uid = window.cloudAuth?.currentUser?.uid || ('guest_' + Math.random().toString(36).substring(2, 9));
       if (!window.cloudDb) {
@@ -996,22 +969,13 @@
       try {
         if (window.currentSessionDocId && !window.currentSessionDocId.startsWith('local_')) {
           const docRef = doc(window.cloudDb, 'submissions', window.currentSessionDocId);
-          await setDoc(docRef, {
-            ...submissionData,
-            status: 'completed',
-            userId: uid
-          }, { merge: true });
+          await setDoc(docRef, { ...submissionData, status: 'completed', userId: uid }, { merge: true });
         } else {
           const subCol = collection(window.cloudDb, 'submissions');
-          const docRef = await addDoc(subCol, {
-            ...submissionData,
-            status: 'completed',
-            userId: uid
-          });
+          const docRef = await addDoc(subCol, { ...submissionData, status: 'completed', userId: uid });
           window.currentSessionDocId = docRef.id;
         }
       } catch (err) {
-        console.warn("Could not save to remote cloud, updating locally:", err);
         const existingIdx = window.allSubmissions.findIndex(s => s.id === window.currentSessionDocId);
         if (existingIdx >= 0) {
           window.allSubmissions[existingIdx] = { ...window.allSubmissions[existingIdx], ...submissionData, status: 'completed' };
@@ -1024,15 +988,217 @@
     };
   </script>
 
-  <!-- Main Application Logic -->
   <script>
-    // Submissions repository & session handles
     window.allSubmissions = [];
     window.currentSessionDocId = null;
 
-    // Instructor Access Controller
     let isInstructorUnlocked = false;
     const INSTRUCTOR_PASSCODE = "cb322";
+
+    // Question Bank with Concise Tags for Data Analysis
+    const quizQuestions = [
+      {
+        id: 1,
+        shortTag: "Alexandria Coastal Selection",
+        topic: "Material Selection • Marine Environment",
+        type: "MCQ",
+        question: "A seaside hotel is planned in Alexandria. Which selection factor moves to the TOP of the list?",
+        options: [
+          "Interior color themes",
+          "Resistance to humidity & salt corrosion",
+          "Furniture style",
+          "Neighbor approvals"
+        ],
+        correctIndex: 1,
+        rationale: "The marine environment attacks materials; corrosion & salt weathering resistance dominates near the Mediterranean coast."
+      },
+      {
+        id: 2,
+        shortTag: "Cost vs. Fit-for-Purpose",
+        topic: "Design Economics • Fit-for-Purpose",
+        type: "TRUE / FALSE",
+        question: "\"The best material is always the most expensive one on the market.\"",
+        options: [
+          "TRUE",
+          "FALSE"
+        ],
+        correctIndex: 1,
+        rationale: "Best means fit-for-purpose: properties matched to needs at an acceptable cost, not the priciest label."
+      },
+      {
+        id: 3,
+        shortTag: "Asphalt Classification",
+        topic: "Material Origins • Extraction",
+        type: "MCQ",
+        question: "Asphalt recovered from oil fields is classified as...",
+        options: [
+          "A natural material (used as found)",
+          "An extracted material",
+          "An industrial material",
+          "An engineering waste"
+        ],
+        correctIndex: 1,
+        rationale: "Asphalt is separated from natural deposits by drilling and extraction, like petroleum and coal."
+      },
+      {
+        id: 4,
+        shortTag: "Fly Ash Origin",
+        topic: "Material Origins • Industrial Byproducts",
+        type: "TRUE / FALSE",
+        question: "\"Fly ash is dug out of natural quarries.\"",
+        options: [
+          "TRUE",
+          "FALSE"
+        ],
+        correctIndex: 1,
+        rationale: "Fly ash is collected from power-plant flue gases as an industrial by-product, not a quarry product."
+      },
+      {
+        id: 5,
+        shortTag: "Footbridge Deflection Test",
+        topic: "Testing Methods • Field vs Lab",
+        type: "MCQ",
+        question: "Loading an actual full-size footbridge ON SITE until it deflects is a...",
+        options: [
+          "Laboratory test on a model",
+          "Field test on a full-size structure",
+          "Laboratory test on a specimen",
+          "Field test on a raw-material sample"
+        ],
+        correctIndex: 1,
+        rationale: "Real scale + real site = field test on a full-size structure."
+      },
+      {
+        id: 6,
+        shortTag: "Lab vs Field Testing",
+        topic: "Testing Methods • Precision Control",
+        type: "TRUE / FALSE",
+        question: "Laboratory tests are preferred because conditions are controlled and accuracy is higher.",
+        options: [
+          "TRUE",
+          "FALSE"
+        ],
+        correctIndex: 0,
+        rationale: "Controlled temperature, calibrated equipment, and no weathering interference make lab certification accurate."
+      },
+      {
+        id: 7,
+        shortTag: "Schmidt Hammer NDT",
+        topic: "Testing Methods • Non-Destructive",
+        type: "MCQ",
+        question: "A rebound (Schmidt) hammer clicked on a finished column leaves NO damage. This test is...",
+        options: [
+          "Destructive",
+          "Semi-destructive",
+          "Non-destructive (NDT)",
+          "Long-term"
+        ],
+        correctIndex: 2,
+        rationale: "Inspection on the job with zero damage is non-destructive testing (NDT)."
+      },
+      {
+        id: 8,
+        shortTag: "Dynamic vs Static Rate",
+        topic: "Mechanical Loading • Rate of Load",
+        type: "TRUE / FALSE",
+        question: "\"A dynamic test applies the load gradually over a long period.\"",
+        options: [
+          "TRUE",
+          "FALSE"
+        ],
+        correctIndex: 1,
+        rationale: "Gradual is STATIC; rapid and sudden is DYNAMIC; sustained over a long duration is LONG-TERM."
+      },
+      {
+        id: 9,
+        shortTag: "Mechanical vs Thermal",
+        topic: "Property Families • Load vs Heat",
+        type: "TRUE / FALSE",
+        question: "\"Strength and hardness are thermal properties.\"",
+        options: [
+          "TRUE",
+          "FALSE"
+        ],
+        correctIndex: 1,
+        rationale: "Strength and hardness are MECHANICAL properties: the response to applied load, not heat."
+      },
+      {
+        id: 10,
+        shortTag: "Ductile Warning Behavior",
+        topic: "Mechanical Behavior • Ductility Warning",
+        type: "MCQ",
+        question: "Which material gives you VISIBLE warning before failure?",
+        options: [
+          "Window glass",
+          "Plain concrete",
+          "Mild steel",
+          "Cast iron"
+        ],
+        correctIndex: 2,
+        rationale: "Mild steel is ductile: it stretches and necks visibly before final fracture."
+      },
+      {
+        id: 11,
+        shortTag: "Brittle Deformation",
+        topic: "Mechanical Behavior • Brittle Fracture",
+        type: "TRUE / FALSE",
+        question: "\"Brittle materials undergo large deformation before failure.\"",
+        options: [
+          "TRUE",
+          "FALSE"
+        ],
+        correctIndex: 1,
+        rationale: "Large deformation is DUCTILE behavior. Brittle materials exhibit tiny deformation followed by sudden, unwarned fracture."
+      },
+      {
+        id: 12,
+        shortTag: "Lab Fatigue Test",
+        topic: "Test Classification • Rapid Repeated Load",
+        type: "MCQ",
+        question: "A steel bar from a bridge order is tested in the lab. It is loaded rapidly to failure, repeating 2 million times.",
+        options: [
+          "Static, single-load, and non-destructive",
+          "Dynamic, fatigue (repeated load), and destructive",
+          "Long-term, static, and non-destructive",
+          "Dynamic, single-load, and semi-destructive"
+        ],
+        correctIndex: 1,
+        rationale: "Laboratory + dynamic (rapid) + repeated (fatigue) + destructive (failed)."
+      },
+      {
+        id: 13,
+        shortTag: "Ductile vs Brittle Sort",
+        topic: "Material Classification • Ductility Groups",
+        type: "MCQ",
+        question: "Civil engineers must separate ductile materials from brittle materials. Which group contains ONLY ductile materials?",
+        options: [
+          "Window glass, plain concrete, and cast iron",
+          "Mild-steel rebar, copper wire, and aluminum sheet",
+          "Mild-steel rebar, window glass, and copper wire",
+          "Aluminum sheet, plain concrete, and cast-iron pipe"
+        ],
+        correctIndex: 1,
+        rationale: "Mild steel, copper, and aluminum are ductile metals that yield. Glass, concrete, and cast iron are brittle."
+      }
+    ];
+
+    // State Variables - STRICT 30 SECONDS PER QUESTION
+    const QUESTION_TIME_LIMIT = 30;
+    let studentName = "";
+    let studentAvatar = "👷‍♂️";
+    let studentRole = "Civil Engineer";
+    let currentQuestionIdx = 0;
+    
+    let questionTimes = new Array(quizQuestions.length).fill(QUESTION_TIME_LIMIT);
+    let questionAnswers = new Array(quizQuestions.length).fill(null);
+    let questionFlagged = new Array(quizQuestions.length).fill(false);
+    let questionTimedOut = new Array(quizQuestions.length).fill(false);
+
+    let currentStreak = 0;
+    let maxStreak = 0;
+    let totalScore = 0;
+    let totalXp = 0;
+    let timerInterval = null;
 
     function handleInstructorAccessClick() {
       if (isInstructorUnlocked) {
@@ -1074,7 +1240,7 @@
         const headerLockBadge = document.getElementById('instructorLockBadge');
         if (headerLockBadge) {
           headerLockBadge.textContent = "✓ UNLOCKED";
-          headerLockBadge.className = "text-[9px] px-1.5 py-0.2 bg-emerald-500 text-white rounded font-mono font-bold";
+          headerLockBadge.className = "text-[10px] px-2 py-0.5 bg-emerald-500 text-white rounded font-mono font-bold";
         }
 
         const modalLockBadge = document.getElementById('instructorUnlockedStatusBadge');
@@ -1086,9 +1252,9 @@
         const singleContent = document.getElementById('singleQuestionContent');
         if (singleContent) singleContent.classList.remove('hidden');
 
-        showNotificationToast("Instructor verified! Live analytics unlocked.", "🎓");
+        showNotificationToast("Instructor verified! Analytics unlocked.", "🎓");
         playSound('unlock_gift');
-        openDashboardModal('singleQuestion');
+        openDashboardModal('analytics');
       } else {
         err.classList.remove('hidden');
         input.focus();
@@ -1096,7 +1262,6 @@
       }
     }
 
-    // Global Active Session Player Counters
     window.updateAllPlayerCounts = function() {
       const subs = window.allSubmissions || [];
       const totalCount = subs.length;
@@ -1121,7 +1286,7 @@
       const subs = window.allSubmissions || [];
       const body = document.getElementById('scoreboardTableBody');
       const podium = document.getElementById('podiumContainer');
-      const analyticsContainer = document.getElementById('questionAnalyticsContainer');
+      const barChartContainer = document.getElementById('analyticsBarChart');
 
       if (!body || !podium) return;
 
@@ -1133,10 +1298,10 @@
         return (a.startedAt || 0) - (b.startedAt || 0);
       });
 
-      // 1. Render Table (Shows active in-progress and completed players)
+      // 1. Render Table
       body.innerHTML = '';
       if (sorted.length === 0) {
-        body.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-400 italic">No submissions in this session yet. Be the first!</td></tr>`;
+        body.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-400 italic">No submissions recorded yet. Be the first!</td></tr>`;
       } else {
         sorted.forEach((s, idx) => {
           const isTesting = (s.status === 'in_progress');
@@ -1148,27 +1313,27 @@
           const tr = document.createElement('tr');
           tr.className = isTesting ? "bg-amber-500/5 hover:bg-amber-500/10 transition" : "hover:bg-indigo-500/5 transition";
           tr.innerHTML = `
-            <td class="py-3 px-3 font-bold text-sm">${medal}</td>
-            <td class="py-3 px-3 font-semibold flex items-center gap-1.5 truncate">
-              <span class="text-base">${s.studentAvatar || '👷‍♂️'}</span>
-              <span class="truncate max-w-[120px] sm:max-w-none">${s.studentName}</span>
-              ${isTesting ? '<span class="text-[9px] px-1.5 py-0.2 bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded font-bold">Testing</span>' : ''}
+            <td class="py-3 px-3.5 font-bold text-sm sm:text-base">${medal}</td>
+            <td class="py-3 px-3.5 font-bold flex items-center gap-2 truncate">
+              <span class="text-base sm:text-lg">${s.studentAvatar || '👷‍♂️'}</span>
+              <span class="truncate max-w-[140px] sm:max-w-none">${s.studentName}</span>
+              ${isTesting ? '<span class="text-[10px] px-2 py-0.5 bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded font-bold">In Progress</span>' : ''}
             </td>
-            <td class="py-3 px-3 text-center font-black text-indigo-600 dark:text-indigo-400">
+            <td class="py-3 px-3.5 text-center font-black text-indigo-600 dark:text-indigo-400">
               ${isTesting ? '<span class="text-amber-500 text-xs">Answering...</span>' : `${s.score} / 13`}
             </td>
-            <td class="py-3 px-3 text-center font-semibold text-emerald-600 dark:text-emerald-400">
-              ${isTesting ? '<span class="text-slate-400 text-xs font-normal">In progress</span>' : `${s.percentage}%`}
+            <td class="py-3 px-3.5 text-center font-bold text-emerald-600 dark:text-emerald-400">
+              ${isTesting ? '<span class="text-slate-400 text-xs font-normal">Active</span>' : `${s.percentage}%`}
             </td>
-            <td class="py-3 px-3 text-center font-mono font-bold text-amber-600 dark:text-amber-400">${s.totalXp || 0} XP</td>
-            <td class="py-3 px-3 text-center font-bold">🔥 ${s.maxStreak || 0}</td>
-            <td class="py-3 px-3 text-right font-mono text-slate-400 text-[10px]">${timeStr}</td>
+            <td class="py-3 px-3.5 text-center font-mono font-bold text-amber-600 dark:text-amber-400">${s.totalXp || 0}</td>
+            <td class="py-3 px-3.5 text-center font-bold">🔥 ${s.maxStreak || 0}</td>
+            <td class="py-3 px-3.5 text-right font-mono text-slate-400 text-xs">${timeStr}</td>
           `;
           body.appendChild(tr);
         });
       }
 
-      // 2. Render Podium (Ranked among completed submissions)
+      // 2. Render Podium
       podium.innerHTML = '';
       const completedOnly = sorted.filter(s => s.status !== 'in_progress');
       const top3 = [completedOnly[1], completedOnly[0], completedOnly[2]];
@@ -1188,29 +1353,29 @@
           div.innerHTML = `
             <div class="text-xs font-bold text-slate-400 mb-1">---</div>
             <div class="w-full ${podiumHeights[pIdx]} ${podiumColors[pIdx]} rounded-2xl border flex flex-col items-center justify-center p-2 text-center shadow-inner opacity-40">
-              <span class="text-lg">${podiumRanks[pIdx]}</span>
+              <span class="text-base sm:text-lg">${podiumRanks[pIdx]}</span>
               <span class="text-[10px] mt-1">Empty</span>
             </div>
           `;
         } else {
           div.innerHTML = `
-            <div class="text-xs font-black text-slate-900 dark:text-white mb-1 truncate max-w-[100px] flex items-center gap-1">
+            <div class="text-xs sm:text-sm font-black text-slate-900 dark:text-white mb-1 truncate max-w-[110px] flex items-center gap-1">
               <span>${item.studentAvatar || '👷‍♂️'}</span>
               <span class="truncate">${item.studentName}</span>
             </div>
             <div class="w-full ${podiumHeights[pIdx]} ${podiumColors[pIdx]} rounded-2xl border flex flex-col items-center justify-center p-2 text-center shadow-md transition transform hover:scale-105">
               <span class="text-xl sm:text-2xl">${pIdx === 1 ? '👑' : (pIdx === 0 ? '🥈' : '🥉')}</span>
               <span class="text-xs sm:text-sm font-black mt-1">${item.score}/13</span>
-              <span class="text-[9px] opacity-80 font-mono">${item.percentage}%</span>
+              <span class="text-[10px] opacity-80 font-mono">${item.percentage}%</span>
             </div>
           `;
         }
         podium.appendChild(div);
       });
 
-      // 3. Render Overall Question Analytics
-      if (analyticsContainer) {
-        analyticsContainer.innerHTML = '';
+      // 3. Render Visual Bar Chart Analytics (Concise & Easy to Read)
+      if (barChartContainer) {
+        barChartContainer.innerHTML = '';
         let totalSumScore = 0;
         let questionAccuracies = quizQuestions.map(() => 0);
         let completedCount = completedOnly.length;
@@ -1248,24 +1413,32 @@
             easiestIdx = qIdx;
           }
 
-          const card = document.createElement('div');
-          card.className = `p-3 sm:p-3.5 rounded-2xl border ${accPct < 50 ? 'border-rose-500/40 bg-rose-500/5' : 'border-slate-200 dark:border-zinc-800 bg-white/60 dark:bg-black/50'} space-y-2`;
-          card.innerHTML = `
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span class="text-xs font-bold text-slate-800 dark:text-zinc-200 flex items-center gap-2">
-                <span class="px-2 py-0.5 rounded-lg bg-indigo-600 text-white font-mono text-[10px]">Q${qIdx + 1}</span>
-                <span class="truncate max-w-md">${q.topic}</span>
-              </span>
-              <span class="text-xs font-black ${accPct >= 70 ? 'text-emerald-500' : (accPct >= 45 ? 'text-amber-500' : 'text-rose-500')}">
-                ${accPct}% Accuracy (${correctCount}/${completedCount} Passed)
+          const barColor = accPct >= 70 
+            ? 'bg-emerald-500' 
+            : (accPct >= 50 ? 'bg-amber-500' : 'bg-rose-500');
+          const badgeColor = accPct >= 70 
+            ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10' 
+            : (accPct >= 50 ? 'text-amber-600 dark:text-amber-400 bg-amber-500/10' : 'text-rose-600 dark:text-rose-400 bg-rose-500/10');
+
+          const row = document.createElement('div');
+          row.className = "p-3 rounded-2xl bg-white/70 dark:bg-black/50 border border-slate-200 dark:border-zinc-800/80 space-y-1.5 transition hover:border-indigo-500/40";
+          row.innerHTML = `
+            <div class="flex items-center justify-between text-xs sm:text-sm font-bold">
+              <div class="flex items-center gap-2 truncate">
+                <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-mono font-bold text-xs shrink-0">
+                  Q${qIdx + 1}
+                </span>
+                <span class="font-extrabold text-slate-800 dark:text-zinc-200 truncate">${q.shortTag}</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full font-mono font-black ${badgeColor} shrink-0 text-xs sm:text-sm">
+                ${accPct}% (${correctCount}/${completedCount})
               </span>
             </div>
-            <p class="text-xs text-slate-600 dark:text-zinc-300 font-medium">${q.question}</p>
-            <div class="w-full h-2 bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-              <div class="h-full rounded-full ${accPct >= 70 ? 'bg-emerald-500' : (accPct >= 45 ? 'bg-amber-500' : 'bg-rose-500')}" style="width: ${accPct}%"></div>
+            <div class="w-full h-3 bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden p-0.5">
+              <div class="h-full rounded-full ${barColor} transition-all duration-700 ease-out" style="width: ${accPct}%"></div>
             </div>
           `;
-          analyticsContainer.appendChild(card);
+          barChartContainer.appendChild(row);
         });
 
         if (completedCount > 0) {
@@ -1282,7 +1455,7 @@
       }
     };
 
-    // Audio Synthesizer
+    // Web Audio Synthesizer (Pure sound effects, zero speech synthesis)
     let audioCtx = null;
     let soundEnabled = true;
 
@@ -1307,19 +1480,16 @@
       const now = audioCtx.currentTime;
 
       if (type === 'select') {
-        const freqs = [523.25, 659.25];
-        freqs.forEach((freq, idx) => {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(freq, now + idx * 0.04);
-          gain.gain.setValueAtTime(0.08, now + idx * 0.04);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.04 + 0.12);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start(now + idx * 0.04);
-          osc.stop(now + idx * 0.04 + 0.12);
-        });
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, now);
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.1);
       } else if (type === 'next') {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
@@ -1334,81 +1504,67 @@
         osc.stop(now + 0.14);
       } else if (type === 'timer_warning') {
         const secondsRemaining = param || 5;
-        const baseFreq = 580 + (10 - secondsRemaining) * 45;
+        const baseFreq = 600 + (10 - secondsRemaining) * 45;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(baseFreq, now);
-        osc.frequency.exponentialRampToValueAtTime(baseFreq * 1.25, now + 0.08);
-        gain.gain.setValueAtTime(0.06, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+        gain.gain.setValueAtTime(0.05, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.start(now);
-        osc.stop(now + 0.09);
+        osc.stop(now + 0.08);
       } else if (type === 'timeout') {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(220, now);
-        osc.frequency.linearRampToValueAtTime(140, now + 0.25);
+        osc.frequency.setValueAtTime(240, now);
+        osc.frequency.linearRampToValueAtTime(130, now + 0.28);
         gain.gain.setValueAtTime(0.10, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.29);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.start(now);
-        osc.stop(now + 0.26);
+        osc.stop(now + 0.29);
       } else if (type === 'unlock_gift') {
         const notes = [659.25, 830.61, 987.77, 1318.51];
         notes.forEach((freq, idx) => {
           const osc = audioCtx.createOscillator();
           const gain = audioCtx.createGain();
           osc.type = 'sine';
-          osc.frequency.setValueAtTime(freq, now + idx * 0.06);
-          gain.gain.setValueAtTime(0.08, now + idx * 0.06);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.35);
+          osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+          gain.gain.setValueAtTime(0.08, now + idx * 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.3);
           osc.connect(gain);
           gain.connect(audioCtx.destination);
-          osc.start(now + idx * 0.06);
-          osc.stop(now + idx * 0.06 + 0.35);
+          osc.start(now + idx * 0.05);
+          osc.stop(now + idx * 0.05 + 0.3);
         });
       } else if (type === 'fanfare') {
-        const chordProgression = [
-          [523.25, 659.25, 783.99],
-          [587.33, 739.99, 880.00],
-          [659.25, 830.61, 987.77],
-          [1046.50, 1318.51, 1567.98]
+        const chords = [
+          [523.25, 659.25],
+          [587.33, 739.99],
+          [659.25, 830.61],
+          [1046.50, 1318.51]
         ];
-        chordProgression.forEach((chord, step) => {
+        chords.forEach((chord, step) => {
           chord.forEach(freq => {
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.type = 'triangle';
-            osc.frequency.setValueAtTime(freq, now + step * 0.18);
-            gain.gain.setValueAtTime(0.07, now + step * 0.18);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + step * 0.18 + 0.45);
+            osc.frequency.setValueAtTime(freq, now + step * 0.16);
+            gain.gain.setValueAtTime(0.06, now + step * 0.16);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + step * 0.16 + 0.4);
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-            osc.start(now + step * 0.18);
-            osc.stop(now + step * 0.18 + 0.45);
+            osc.start(now + step * 0.16);
+            osc.stop(now + step * 0.16 + 0.4);
           });
         });
-      } else if (type === 'firework_launch') {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(220, now);
-        osc.frequency.exponentialRampToValueAtTime(1200, now + 0.28);
-        gain.gain.setValueAtTime(0.04, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(now);
-        osc.stop(now + 0.3);
       }
     }
 
-    // Theme & Toast Managers
     function toggleTheme() {
       const htmlEl = document.documentElement;
       const themeBtn = document.getElementById('themeToggleBtn');
@@ -1418,12 +1574,10 @@
         htmlEl.classList.remove('dark');
         htmlEl.classList.add('light');
         themeBtn.textContent = '☀️';
-        themeBtn.title = "Switch to Dark Mode";
       } else {
         htmlEl.classList.remove('light');
         htmlEl.classList.add('dark');
         themeBtn.textContent = '🌙';
-        themeBtn.title = "Switch to Light Mode";
       }
       playSound('select');
     }
@@ -1442,236 +1596,22 @@
       setTimeout(() => {
         toast.classList.remove('translate-y-0', 'opacity-100');
         toast.classList.add('translate-y-24', 'opacity-0');
-      }, 3200);
+      }, 3000);
     }
-
-    // Question Bank
-    const quizQuestions = [
-      {
-        id: 1,
-        topic: "Concept Check #1: The Big Picture",
-        type: "MCQ",
-        category: "selection",
-        question: "A seaside hotel is planned in Alexandria. Which selection factor moves to the TOP of the list?",
-        options: [
-          "Interior color themes",
-          "Resistance to humidity & salt corrosion",
-          "Furniture style",
-          "Neighbor approvals"
-        ],
-        correctIndex: 1,
-        rationale: "The marine environment attacks materials; corrosion & weathering resistance dominates near the sea."
-      },
-      {
-        id: 2,
-        topic: "Concept Check #1: The Big Picture",
-        type: "TRUE / FALSE",
-        category: "selection",
-        question: "\"The best material is always the most expensive one on the market.\"",
-        options: [
-          "TRUE",
-          "FALSE"
-        ],
-        correctIndex: 1,
-        rationale: "Best = fit-for-purpose: properties matched to needs at an acceptable cost, not the priciest label."
-      },
-      {
-        id: 3,
-        topic: "Concept Check #2: Where Materials Come From",
-        type: "MCQ",
-        category: "origin",
-        question: "Asphalt recovered from oil fields is classified as...",
-        options: [
-          "A natural material (used as found)",
-          "An extracted material",
-          "An industrial material",
-          "An engineering waste"
-        ],
-        correctIndex: 1,
-        rationale: "Asphalt is separated from natural deposits by drilling & extraction, exactly like petroleum and coal."
-      },
-      {
-        id: 4,
-        topic: "Concept Check #2: Where Materials Come From",
-        type: "TRUE / FALSE",
-        category: "origin",
-        question: "\"Fly ash is dug out of natural quarries.\"",
-        options: [
-          "TRUE",
-          "FALSE"
-        ],
-        correctIndex: 1,
-        rationale: "Fly ash is collected from power-plant flue gases an industrial by-product, i.e. an engineering waste, not a quarry product."
-      },
-      {
-        id: 5,
-        topic: "Concept Check #3: Method, Object & Place",
-        type: "MCQ",
-        category: "testing",
-        question: "Loading an actual full-size footbridge ON SITE until it deflects is a...",
-        options: [
-          "Laboratory test on a model",
-          "Field test on a full-size structure",
-          "Laboratory test on a specimen",
-          "Field test on a raw-material sample"
-        ],
-        correctIndex: 1,
-        rationale: "Real scale + real site = field test on a full-size structure."
-      },
-      {
-        id: 6,
-        topic: "Concept Check #3: Method, Object & Place",
-        type: "TRUE / FALSE",
-        category: "testing",
-        question: "Laboratory tests are preferred because conditions are controlled and accuracy is higher.",
-        options: [
-          "TRUE",
-          "FALSE"
-        ],
-        correctIndex: 0,
-        rationale: "Controlled temperature, calibrated equipment, no weathering interference; accuracy beats speed when certification is the goal."
-      },
-      {
-        id: 7,
-        topic: "Concept Check #4: After, Rate & Times",
-        type: "MCQ",
-        category: "testing",
-        question: "A rebound (Schmidt) hammer clicked on a finished column leaves NO damage. This test is...",
-        options: [
-          "Destructive",
-          "Semi-destructive",
-          "Non-destructive (NDT)",
-          "Long-term"
-        ],
-        correctIndex: 2,
-        rationale: "Inspection on the job with zero damage = non-destructive testing (NDT)."
-      },
-      {
-        id: 8,
-        topic: "Concept Check #4: After, Rate & Times",
-        type: "TRUE / FALSE",
-        category: "testing",
-        question: "\"A dynamic test applies the load gradually over a long period.\"",
-        options: [
-          "TRUE",
-          "FALSE"
-        ],
-        correctIndex: 1,
-        rationale: "Three different things: gradual = STATIC, rapid & sudden = DYNAMIC, sustained over a long period = LONG-TERM."
-      },
-      {
-        id: 9,
-        topic: "Concept Check #5: Property Families",
-        type: "TRUE / FALSE",
-        category: "properties",
-        question: "\"Strength and hardness are thermal properties.\"",
-        options: [
-          "TRUE",
-          "FALSE"
-        ],
-        correctIndex: 1,
-        rationale: "They are MECHANICAL properties - the response to LOAD, not to heat."
-      },
-      {
-        id: 10,
-        topic: "Concept Check #6: Mechanical Behavior",
-        type: "MCQ",
-        category: "behavior",
-        question: "Which material gives you VISIBLE warning before failure?",
-        options: [
-          "Window glass",
-          "Plain concrete",
-          "Mild steel",
-          "Cast iron"
-        ],
-        correctIndex: 2,
-        rationale: "Mild steel is ductile: it stretches and necks visibly before it finally breaks."
-      },
-      {
-        id: 11,
-        topic: "Concept Check #6: Mechanical Behavior",
-        type: "TRUE / FALSE",
-        category: "behavior",
-        question: "\"Brittle materials undergo large deformation before failure.\"",
-        options: [
-          "TRUE",
-          "FALSE"
-        ],
-        correctIndex: 1,
-        rationale: "That is DUCTILE behavior. Brittle = tiny deformation + sudden, unwarned fracture."
-      },
-      {
-        id: 12,
-        topic: "Your Turn: Complete the Classification",
-        type: "MCQ",
-        category: "testing",
-        question: "A steel bar from a bridge order is tested in the laboratory. It is loaded rapidly and suddenly to failure, and the whole loading cycle is repeated two million times.",
-        options: [
-          "Static, single-load, and non-destructive",
-          "Dynamic, fatigue (repeated load), and destructive",
-          "Long-term, static, and non-destructive",
-          "Dynamic, single-load, and semi-destructive"
-        ],
-        correctIndex: 1,
-        rationale: "Laboratory + dynamic (rapid & sudden) + repeated (fatigue) + destructive (it failed)."
-      },
-      {
-        id: 13,
-        topic: "Worked Example: Sort These Materials",
-        type: "MCQ",
-        category: "behavior",
-        question: "Civil engineers must separate ductile materials from brittle materials. Which group contains ONLY ductile materials?",
-        options: [
-          "Window glass, plain concrete, and cast iron",
-          "Mild-steel rebar, copper wire, and aluminum sheet",
-          "Mild-steel rebar, window glass, and copper wire",
-          "Aluminum sheet, plain concrete, and cast-iron pipe"
-        ],
-        correctIndex: 1,
-        rationale: "Mild steel, copper, and aluminum are ductile metals that stretch under tension. Glass, concrete, and cast iron are brittle."
-      }
-    ];
-
-    // State Variables
-    let studentName = "";
-    let studentAvatar = "👷‍♂️";
-    let studentRole = "Civil Engineer";
-    let currentQuestionIdx = 0;
-    
-    const QUESTION_TIME_LIMIT = 40;
-    let questionTimes = new Array(quizQuestions.length).fill(QUESTION_TIME_LIMIT);
-    let questionAnswers = new Array(quizQuestions.length).fill(null);
-    let questionFlagged = new Array(quizQuestions.length).fill(false);
-    let questionTimedOut = new Array(quizQuestions.length).fill(false);
-
-    let currentStreak = 0;
-    let maxStreak = 0;
-    let totalScore = 0;
-    let totalXp = 0;
-    let timerInterval = null;
-
-    const encouragementPhrases = [
-      "Solid engineering instinct! Keep your focus sharp.",
-      "Consider the loading dynamics and environmental exposure!",
-      "Great pace! Real-world materials behave by predictable laws.",
-      "Check the failure mode: does it stretch or shatter?",
-      "You're building an unstoppable diagnostic streak!"
-    ];
 
     function selectAvatar(emoji, roleName) {
       studentAvatar = emoji;
       studentRole = roleName || "Civil Engineer";
       document.querySelectorAll('.avatar-opt').forEach(btn => {
         if (btn.getAttribute('data-avatar') === emoji) {
-          btn.className = "avatar-opt p-2 rounded-xl border-2 border-indigo-500 bg-indigo-500/20 text-center transition hover:scale-105 shadow-md";
+          btn.className = "avatar-opt p-2.5 rounded-2xl border-2 border-indigo-500 bg-indigo-500/20 text-center transition hover:scale-105 shadow-md";
         } else {
-          btn.className = "avatar-opt p-2 rounded-xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105";
+          btn.className = "avatar-opt p-2.5 rounded-2xl border-2 border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900 text-center transition hover:scale-105";
         }
       });
       playSound('select');
     }
 
-    // Top Question Map Matrix Handlers
     function renderQuestionMatrix() {
       const container = document.getElementById('questionMatrixContainer');
       if (!container) return;
@@ -1687,7 +1627,7 @@
         const isAnswered = (questionAnswers[idx] !== null);
         const isExpired = questionTimedOut[idx] || (questionTimes[idx] <= 0);
 
-        let chipClass = "py-1.5 px-1 sm:px-2 rounded-xl text-xs font-bold text-center transition flex flex-col items-center justify-center border shadow-sm ";
+        let chipClass = "py-2 px-1 rounded-xl text-xs sm:text-sm font-bold text-center transition flex flex-col items-center justify-center border shadow-sm ";
         let statusIcon = "";
 
         if (isActive) {
@@ -1711,10 +1651,10 @@
         }
 
         btn.className = chipClass;
-        btn.title = `Question ${idx + 1}: ${q.topic}`;
+        btn.title = `Q${idx + 1}: ${q.shortTag}`;
         btn.innerHTML = `
-          <span class="text-[11px] leading-none font-mono">Q${idx + 1}</span>
-          <span class="text-[9px] leading-tight font-normal h-3.5 flex items-center justify-center">${statusIcon || '&nbsp;'}</span>
+          <span class="text-xs sm:text-sm leading-none font-mono">Q${idx + 1}</span>
+          <span class="text-[10px] leading-tight font-normal h-4 flex items-center justify-center">${statusIcon || '&nbsp;'}</span>
         `;
         container.appendChild(btn);
       });
@@ -1754,9 +1694,9 @@
       }
       if (flagBtn) {
         if (isFlagged) {
-          flagBtn.className = "px-2.5 py-1 rounded-lg border border-amber-500 bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold text-xs flex items-center gap-1 transition active:scale-95 shadow-sm";
+          flagBtn.className = "px-3 py-1.5 rounded-xl border border-amber-500 bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-sm";
         } else {
-          flagBtn.className = "px-2.5 py-1 rounded-lg border border-slate-300 dark:border-zinc-700 bg-slate-100 dark:bg-black/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center gap-1 transition active:scale-95 shadow-sm";
+          flagBtn.className = "px-3 py-1.5 rounded-xl border border-slate-300 dark:border-zinc-700 bg-slate-100 dark:bg-black/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm flex items-center gap-1.5 transition active:scale-95 shadow-sm";
         }
       }
     }
@@ -1786,7 +1726,6 @@
       playSound('next');
       loadQuestion(0);
 
-      // Register session in progress
       const initialRecord = {
         studentName: studentName,
         studentAvatar: studentAvatar,
@@ -1811,13 +1750,13 @@
       }
     }
 
-    // 40-Second Non-Renewable Question Countdown
+    // STRICT 30-SECOND QUESTION TIMER WITH FORCED ADVANCE
     function startQuestionTimer() {
       stopActiveQuestionTimer();
       updateTimerDisplay();
 
       if (questionTimes[currentQuestionIdx] <= 0) {
-        lockQuestionForTimeout();
+        handleQuestionTimeout();
         return;
       }
 
@@ -1825,10 +1764,11 @@
         questionTimes[currentQuestionIdx]--;
         updateTimerDisplay();
 
-        if (questionTimes[currentQuestionIdx] <= 8 && questionTimes[currentQuestionIdx] > 0) {
+        if (questionTimes[currentQuestionIdx] <= 6 && questionTimes[currentQuestionIdx] > 0) {
           playSound('timer_warning', questionTimes[currentQuestionIdx]);
         }
 
+        // When time expires: FORCE user to move to next question & preserve selection
         if (questionTimes[currentQuestionIdx] <= 0) {
           questionTimes[currentQuestionIdx] = 0;
           questionTimedOut[currentQuestionIdx] = true;
@@ -1859,63 +1799,56 @@
       if (!timerText || !timerFill) return;
 
       timerText.textContent = `${remaining}s`;
-      timerFraction.textContent = `${remaining} / 40 sec`;
+      timerFraction.textContent = `${remaining} / 30 sec`;
       timerFill.style.width = `${Math.max(0, percentage)}%`;
 
-      if (remaining > 16) {
+      if (remaining > 12) {
         timerFill.className = "h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-1000 ease-linear shadow-lg shadow-emerald-500/20";
-        timerText.className = "text-sm font-black font-mono text-emerald-600 dark:text-emerald-400";
+        timerText.className = "text-base font-black font-mono text-emerald-600 dark:text-emerald-400";
         timerIcon.textContent = "⏱️";
-        timerIcon.className = "text-emerald-500 text-sm";
-        timerStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span> Remaining Time`;
-        timerStatus.className = "text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1";
+        timerIcon.className = "text-emerald-500 text-base";
+        timerStatus.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block"></span> Time Remaining`;
+        timerStatus.className = "text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5";
         timerContainer.classList.remove('border-rose-500/50', 'timer-urgent');
         timerBadge.classList.remove('border-rose-500/60', 'bg-rose-950/40');
-      } else if (remaining > 7) {
+      } else if (remaining > 6) {
         timerFill.className = "h-full bg-gradient-to-r from-amber-500 via-orange-400 to-amber-400 rounded-full transition-all duration-1000 ease-linear shadow-lg shadow-amber-500/25";
-        timerText.className = "text-sm font-black font-mono text-amber-600 dark:text-amber-400";
+        timerText.className = "text-base font-black font-mono text-amber-600 dark:text-amber-400";
         timerIcon.textContent = "⏳";
-        timerIcon.className = "text-amber-500 text-sm animate-bounce";
-        timerStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping inline-block"></span> Warning: Low Time`;
-        timerStatus.className = "text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1";
+        timerIcon.className = "text-amber-500 text-base animate-bounce";
+        timerStatus.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500 animate-ping inline-block"></span> Warning: Low Time`;
+        timerStatus.className = "text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1.5";
         timerContainer.classList.remove('border-rose-500/50', 'timer-urgent');
         timerBadge.classList.remove('border-rose-500/60', 'bg-rose-950/40');
       } else {
         timerFill.className = "h-full bg-gradient-to-r from-rose-500 via-red-500 to-rose-600 rounded-full transition-all duration-1000 ease-linear shadow-lg shadow-rose-500/40";
-        timerText.className = "text-sm font-black font-mono text-rose-600 dark:text-rose-400 animate-pulse";
+        timerText.className = "text-base font-black font-mono text-rose-600 dark:text-rose-400 animate-pulse";
         timerIcon.textContent = "🚨";
-        timerIcon.className = "text-rose-500 text-sm animate-ping";
-        timerStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping inline-block"></span> Time Almost Up!`;
-        timerStatus.className = "text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1 animate-pulse";
+        timerIcon.className = "text-rose-500 text-base animate-ping";
+        timerStatus.innerHTML = `<span class="w-2 h-2 rounded-full bg-rose-500 animate-ping inline-block"></span> Time Expiring!`;
+        timerStatus.className = "text-rose-600 dark:text-rose-400 font-black flex items-center gap-1.5 animate-pulse";
         timerContainer.classList.add('border-rose-500/50', 'timer-urgent');
         timerBadge.classList.add('border-rose-500/60', 'bg-rose-950/40');
       }
     }
 
-    function lockQuestionForTimeout() {
-      const timeNotice = document.getElementById('timeStateNotice');
-      if (timeNotice) {
-        timeNotice.textContent = "Time expired for this question (locked)";
-        timeNotice.className = "text-rose-500 font-bold text-[10px]";
-      }
-
-      const container = document.getElementById('optionsContainer');
-      if (container) {
-        const buttons = container.querySelectorAll('button');
-        buttons.forEach(b => {
-          b.disabled = true;
-          b.classList.add('opacity-75', 'cursor-not-allowed');
-        });
-      }
-    }
-
+    // Force user to advance to the next question when 30 seconds elapse
     function handleQuestionTimeout() {
       playSound('timeout');
-      lockQuestionForTimeout();
+      showNotificationToast(`Time up for Q${currentQuestionIdx + 1}! Moving to next...`, "⏱️");
       renderQuestionMatrix();
+
+      // Brief delay to let the student perceive the timeout then automatically advance
+      setTimeout(() => {
+        if (currentQuestionIdx < quizQuestions.length - 1) {
+          currentQuestionIdx++;
+          loadQuestion(currentQuestionIdx);
+        } else {
+          finishQuizConfirm();
+        }
+      }, 550);
     }
 
-    // Question Rendering & Navigation
     function loadQuestion(idx) {
       currentQuestionIdx = idx;
       const q = quizQuestions[currentQuestionIdx];
@@ -1927,12 +1860,9 @@
       document.getElementById('qTypeBadge').textContent = q.type;
       document.getElementById('questionText').textContent = q.question;
 
-      const phrase = encouragementPhrases[currentQuestionIdx % encouragementPhrases.length];
-      document.getElementById('encouragementText').textContent = `"${phrase}" — Stay sharp, ${studentName}!`;
-
       const timeNotice = document.getElementById('timeStateNotice');
-      timeNotice.textContent = `Individual timer: ${questionTimes[currentQuestionIdx]}s remaining`;
-      timeNotice.className = "text-slate-400 text-[10px]";
+      timeNotice.textContent = `Timer: ${questionTimes[currentQuestionIdx]}s remaining`;
+      timeNotice.className = "text-slate-400 text-xs";
 
       const container = document.getElementById('optionsContainer');
       container.innerHTML = "";
@@ -1949,9 +1879,9 @@
         const letter = String.fromCharCode(65 + optIdx);
 
         if (isChosen) {
-          btn.className = "w-full text-left p-3 sm:p-3.5 rounded-xl border-2 border-indigo-600 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-950/50 text-slate-900 dark:text-white text-xs sm:text-sm font-semibold transition duration-150 flex items-center justify-between shadow-md";
+          btn.className = "w-full text-left p-4 sm:p-4.5 rounded-2xl border-2 border-indigo-600 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-950/50 text-slate-900 dark:text-white text-sm sm:text-base font-bold transition duration-150 flex items-center justify-between shadow-md";
         } else {
-          btn.className = "w-full text-left p-3 sm:p-3.5 rounded-xl border border-slate-300 dark:border-zinc-800 bg-white/70 dark:bg-black/60 hover:bg-slate-100 dark:hover:bg-zinc-900 text-slate-800 dark:text-zinc-200 text-xs sm:text-sm font-medium transition duration-150 flex items-center justify-between group active:scale-[0.995] shadow-sm";
+          btn.className = "w-full text-left p-4 sm:p-4.5 rounded-2xl border border-slate-300 dark:border-zinc-800 bg-white/70 dark:bg-black/60 hover:bg-slate-100 dark:hover:bg-zinc-900 text-slate-800 dark:text-zinc-200 text-sm sm:text-base font-semibold transition duration-150 flex items-center justify-between group active:scale-[0.995] shadow-sm";
         }
 
         if (isExpired) {
@@ -1960,21 +1890,21 @@
         }
 
         btn.innerHTML = `
-          <div class="flex items-center space-x-2.5">
-            <span class="w-7 h-7 rounded-lg ${isChosen ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300'} flex items-center justify-center text-xs font-bold transition">
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-xl ${isChosen ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300'} flex items-center justify-center text-xs sm:text-sm font-black transition">
               ${letter}
             </span>
-            <span class="option-text">${optText}</span>
+            <span class="option-text leading-snug">${optText}</span>
           </div>
-          <span class="selection-marker ${isChosen ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'} text-base font-bold">${isChosen ? '🔘' : '◯'}</span>
+          <span class="selection-marker ${isChosen ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'} text-lg font-bold">${isChosen ? '🔘' : '◯'}</span>
         `;
         container.appendChild(btn);
       });
 
       document.getElementById('prevBtn').disabled = (currentQuestionIdx === 0);
       document.getElementById('prevBtn').className = currentQuestionIdx === 0
-        ? "py-2 px-3.5 rounded-xl bg-slate-200/50 dark:bg-zinc-900 text-slate-400 dark:text-zinc-600 font-bold text-xs tracking-wide transition flex items-center gap-1 cursor-not-allowed opacity-50"
-        : "py-2 px-3.5 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 font-bold text-xs tracking-wide transition flex items-center gap-1 active:scale-95";
+        ? "py-2.5 px-4 rounded-xl bg-slate-200/50 dark:bg-zinc-900 text-slate-400 dark:text-zinc-600 font-bold text-xs sm:text-sm tracking-wide transition flex items-center gap-1 cursor-not-allowed opacity-50"
+        : "py-2.5 px-4 rounded-xl bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm tracking-wide transition flex items-center gap-1 active:scale-95";
 
       const nextLabel = document.getElementById('nextBtnLabel');
       nextLabel.textContent = (currentQuestionIdx === quizQuestions.length - 1) ? "Finish Test" : "Next";
@@ -1997,15 +1927,15 @@
         const marker = btn.querySelector('.selection-marker');
         const badge = btn.querySelector('span');
         if (idx === index) {
-          btn.className = "w-full text-left p-3 sm:p-3.5 rounded-xl border-2 border-indigo-600 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-950/50 text-slate-900 dark:text-white text-xs sm:text-sm font-semibold transition duration-150 flex items-center justify-between shadow-md";
+          btn.className = "w-full text-left p-4 sm:p-4.5 rounded-2xl border-2 border-indigo-600 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-950/50 text-slate-900 dark:text-white text-sm sm:text-base font-bold transition duration-150 flex items-center justify-between shadow-md";
           marker.innerHTML = "🔘";
-          marker.className = "selection-marker text-indigo-600 dark:text-indigo-400 text-base font-bold";
-          badge.className = "w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs font-bold transition";
+          marker.className = "selection-marker text-indigo-600 dark:text-indigo-400 text-lg font-bold";
+          badge.className = "w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xs sm:text-sm font-black transition";
         } else {
-          btn.className = "w-full text-left p-3 sm:p-3.5 rounded-xl border border-slate-300 dark:border-zinc-800 bg-white/70 dark:bg-black/60 text-slate-700 dark:text-zinc-300 text-xs sm:text-sm font-medium transition duration-150 flex items-center justify-between";
+          btn.className = "w-full text-left p-4 sm:p-4.5 rounded-2xl border border-slate-300 dark:border-zinc-800 bg-white/70 dark:bg-black/60 text-slate-700 dark:text-zinc-300 text-sm sm:text-base font-semibold transition duration-150 flex items-center justify-between";
           marker.innerHTML = "◯";
-          marker.className = "selection-marker text-slate-400 text-base";
-          badge.className = "w-7 h-7 rounded-lg bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 flex items-center justify-center text-xs font-bold transition";
+          marker.className = "selection-marker text-slate-400 text-lg";
+          badge.className = "w-8 h-8 rounded-xl bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 flex items-center justify-center text-xs sm:text-sm font-black transition";
         }
       });
     }
@@ -2065,7 +1995,6 @@
       finishQuiz();
     }
 
-    // Finishing Assessment & Solutions
     async function finishQuiz() {
       stopActiveQuestionTimer();
 
@@ -2075,38 +2004,11 @@
       playSound('fanfare');
       startGrandCelebrationFireworks();
 
-      // Egyptian Greeting
+      // Egyptian Greeting (Visual banner only, no voice synthesis or AI apology)
       const cheerBanner = document.getElementById('personalizedCheerBanner');
       cheerBanner.textContent = `🎉 الله ينور عليك يا ${studentName} يا جامد! 👏`;
 
-      try {
-        if ('speechSynthesis' in window && soundEnabled) {
-          window.speechSynthesis.cancel();
-          const utterance1 = new SpeechSynthesisUtterance(`الله ينور عليك يا ${studentName} يا جامد`);
-          utterance1.lang = 'ar-EG';
-          utterance1.rate = 0.95;
-          window.speechSynthesis.speak(utterance1);
-        }
-      } catch (e) {}
-
-      // Humorous AI Apology after exactly 2-second pause
-      setTimeout(() => {
-        const apologyContainer = document.getElementById('aiApologyContainer');
-        if (apologyContainer) {
-          apologyContainer.classList.remove('hidden');
-        }
-
-        try {
-          if ('speechSynthesis' in window && soundEnabled) {
-            const utterance2 = new SpeechSynthesisUtterance("سامحني.. العربي بتاعي بعافية حبتين عشان أنا ذكاء اصطناعي أجنبي");
-            utterance2.lang = 'ar-EG';
-            utterance2.rate = 0.9;
-            window.speechSynthesis.speak(utterance2);
-          }
-        } catch (e) {}
-      }, 2000);
-
-      // Final scoring
+      // Scoring
       document.getElementById('resultPlayerName').textContent = studentName;
       document.getElementById('finalScoreVal').textContent = totalScore;
       document.getElementById('finalXpVal').textContent = totalXp;
@@ -2144,7 +2046,7 @@
       preparePersonalizedGifts(percentage);
       renderSolutionsAccordion();
 
-      // Record to Cloud / Live Leaderboard
+      // Record to Cloud
       const submissionRecord = {
         studentName: studentName,
         studentAvatar: studentAvatar,
@@ -2162,29 +2064,24 @@
       if (typeof window.saveSubmissionToCloud === 'function') {
         await window.saveSubmissionToCloud(submissionRecord);
       }
-      showNotificationToast("Performance automatically recorded to Live Hall of Fame! 🏅");
+      showNotificationToast("Results recorded to Class Leaderboard! 🏅");
     }
 
-    // Personalized Gifts Engine
-    let preparedGifts = {
-      compliment: "",
-      advice: "",
-      quote: ""
-    };
+    let preparedGifts = { compliment: "", advice: "", quote: "" };
 
     function preparePersonalizedGifts(pct) {
       if (pct >= 85) {
-        preparedGifts.compliment = `Outstanding work, ${studentName}! Your mastery of environmental corrosion factors and mechanical failure modes reflects the precision of a seasoned principal structural architect.`;
-        preparedGifts.advice = `Continue exploring advanced non-destructive testing (NDT) techniques and fatigue cycle analysis to lead complex infrastructure projects.`;
-        preparedGifts.quote = `"The structure is only as reliable as the materials engineer's uncompromising commitment to fit-for-purpose durability." — Master Structural Code`;
+        preparedGifts.compliment = `Outstanding mastery, ${studentName}! Your understanding of environmental corrosion and failure modes demonstrates the rigor of a principal materials architect.`;
+        preparedGifts.advice = `Deepen your focus on dynamic fatigue loading and non-destructive acoustic testing for mega-structure certifications.`;
+        preparedGifts.quote = `"Structure durability is the silent signature of the conscientious materials engineer." — Engineering Proverb`;
       } else if (pct >= 60) {
-        preparedGifts.compliment = `Great effort, ${studentName}! You have a solid grasp of core testing fundamentals and material origins. Keep sharpening your technical diagnostics.`;
-        preparedGifts.advice = `Review the distinctions between static vs. dynamic loading and verify whether structural elements provide visible warning (ductile) before failure.`;
+        preparedGifts.compliment = `Solid effort, ${studentName}! You show strong diagnostic intuition on material origins and destructive vs non-destructive methods.`;
+        preparedGifts.advice = `Review ductile vs brittle failure modes: ductile gives visible stretching warnings; brittle shatters with zero warning.`;
         preparedGifts.quote = `"Engineering excellence is achieved through constant attention to material behavior under real-world loads." — Construction Standard`;
       } else {
-        preparedGifts.compliment = `Thank you for completing the diagnostic quest, ${studentName}! Taking this step is the foundation of becoming an expert materials engineer.`;
-        preparedGifts.advice = `Re-visit Concept Checks 1 through 6, paying close attention to material classification origins (extracted vs. industrial) and testing methods.`;
-        preparedGifts.quote = `"Every expert engineer started by carefully examining the fundamental properties of building materials." — Engineering Proverb`;
+        preparedGifts.compliment = `Great commitment completing the assessment, ${studentName}! Taking this diagnostic is the foundation for material mastery.`;
+        preparedGifts.advice = `Re-examine Concept Checks 1 through 6, specifically distinguishing static vs dynamic rates and extracted vs industrial materials.`;
+        preparedGifts.quote = `"Every expert engineer started by examining the fundamental properties of building materials." — Materials Axiom`;
       }
 
       ['Compliment', 'Advice', 'Quote'].forEach(k => {
@@ -2197,7 +2094,6 @@
         if (btnEl) {
           btnEl.disabled = false;
           btnEl.textContent = "🎁 Open";
-          btnEl.className = `px-3 py-1.5 rounded-lg text-white text-xs font-bold shadow transition active:scale-95 ${k === 'Compliment' ? 'bg-blue-600 hover:bg-blue-500' : (k === 'Advice' ? 'bg-amber-600 hover:bg-amber-500' : 'bg-purple-600 hover:bg-purple-500')}`;
         }
       });
     }
@@ -2218,7 +2114,7 @@
       contentEl.classList.remove('hidden');
       btnEl.textContent = "✨ Opened";
       btnEl.disabled = true;
-      btnEl.className = "px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow opacity-80 cursor-default";
+      btnEl.className = "px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs sm:text-sm font-bold shadow opacity-85 cursor-default";
 
       playSound('unlock_gift');
       showNotificationToast(`Unlocked Gift #${type === 'compliment' ? '1' : (type === 'advice' ? '2' : '3')}!`, "🎁");
@@ -2226,7 +2122,7 @@
 
     function unlockAllGifts() {
       ['compliment', 'advice', 'quote'].forEach(t => revealGift(t));
-      showNotificationToast("All personalized engineer gifts successfully unlocked! ✨", "🎁");
+      showNotificationToast("All personalized engineer gifts unlocked! ✨", "🎁");
     }
 
     function renderSolutionsAccordion() {
@@ -2243,32 +2139,32 @@
         const correctChoiceText = q.options[q.correctIndex];
 
         const card = document.createElement('div');
-        card.className = `p-4 rounded-2xl border ${isCorrect ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-rose-500/40 bg-rose-500/5'} space-y-2`;
+        card.className = `p-4 sm:p-5 rounded-2xl border ${isCorrect ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-rose-500/40 bg-rose-500/5'} space-y-2.5`;
         card.innerHTML = `
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-              Q${idx + 1} • ${q.topic}
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+              Q${idx + 1} • ${q.shortTag}
             </span>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-black ${isCorrect ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30'}">
               ${isCorrect ? '✓ PASSED' : '✕ NEEDS REVIEW'}
             </span>
           </div>
-          <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-snug">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
             ${q.question}
           </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
-            <div class="p-2.5 rounded-xl bg-white/70 dark:bg-black/40 border border-slate-200 dark:border-zinc-800">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm pt-1">
+            <div class="p-3 rounded-xl bg-white/70 dark:bg-black/40 border border-slate-200 dark:border-zinc-800">
               <span class="text-[10px] text-slate-400 uppercase font-bold block">Your Answer</span>
-              <span class="font-semibold ${isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}">${userChoiceText}</span>
+              <span class="font-bold ${isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}">${userChoiceText}</span>
             </div>
-            <div class="p-2.5 rounded-xl bg-white/70 dark:bg-black/40 border border-slate-200 dark:border-zinc-800">
+            <div class="p-3 rounded-xl bg-white/70 dark:bg-black/40 border border-slate-200 dark:border-zinc-800">
               <span class="text-[10px] text-slate-400 uppercase font-bold block">Correct Solution</span>
               <span class="font-bold text-indigo-600 dark:text-indigo-400">${correctChoiceText}</span>
             </div>
           </div>
-          <div class="p-3 bg-slate-100 dark:bg-zinc-900/80 rounded-xl border border-slate-200 dark:border-zinc-800 text-xs space-y-1">
-            <span class="font-bold text-slate-700 dark:text-zinc-300 block">Authoritative Rationale:</span>
-            <p class="text-slate-600 dark:text-zinc-400 leading-relaxed text-[11px] sm:text-xs">
+          <div class="p-3 bg-slate-100 dark:bg-zinc-900/80 rounded-xl border border-slate-200 dark:border-zinc-800 text-xs sm:text-sm space-y-1">
+            <span class="font-bold text-slate-700 dark:text-zinc-300 block">Engineering Rationale:</span>
+            <p class="text-slate-600 dark:text-zinc-400 leading-relaxed text-xs sm:text-sm">
               ${q.rationale}
             </p>
           </div>
@@ -2277,7 +2173,6 @@
       });
     }
 
-    // Student Diagnostic Report Downloader
     function downloadStudentReport() {
       const percentage = Math.round((totalScore / quizQuestions.length) * 100);
       const completionDate = new Date().toLocaleString();
@@ -2288,7 +2183,7 @@
         const isCorrect = (studentAnsIdx === q.correctIndex);
         const userChoiceText = (studentAnsIdx !== null && studentAnsIdx >= 0 && studentAnsIdx < q.options.length) 
           ? q.options[studentAnsIdx] 
-          : 'No answer';
+          : 'No answer / Timed out';
         const correctChoiceText = q.options[q.correctIndex];
         
         questionsTableHtml += `
@@ -2332,7 +2227,6 @@
     table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 15px; }
     th { background: #f8fafc; padding: 10px; text-align: left; font-size: 11px; text-transform: uppercase; color: #475569; border-bottom: 2px solid #cbd5e1; }
     .gift-box { background: #f8fafc; border-left: 4px solid #3b82f6; padding: 12px 18px; border-radius: 0 10px 10px 0; margin-bottom: 12px; font-size: 13px; }
-    @media print { body { background: #fff; padding: 0; } .report-container { box-shadow: none; border: none; } }
   </style>
 </head>
 <body>
@@ -2371,26 +2265,26 @@
       </div>
     </div>
 
-    <h3 style="font-size: 15px; margin-bottom: 10px; color: #1e293b;">🎁 Personalized Feedback & Recommendations</h3>
+    <h3 style="font-size: 15px; margin-bottom: 10px; color: #1e293b;">🎁 Personalized Recommendations</h3>
     <div class="gift-box">
       <strong>Engineering Compliment:</strong><br>
-      ${preparedGifts.compliment || 'Excellent commitment and materials diagnostic reasoning!'}
+      ${preparedGifts.compliment}
     </div>
     <div class="gift-box" style="border-left-color: #f59e0b;">
       <strong>Strategic Focus:</strong><br>
-      ${preparedGifts.advice || 'Continue reviewing static vs. dynamic loading and ductile vs. brittle material distinctions.'}
+      ${preparedGifts.advice}
     </div>
     <div class="gift-box" style="border-left-color: #8b5cf6;">
       <strong>Words of Wisdom:</strong><br>
-      ${preparedGifts.quote || 'Engineering precision forms the bedrock of structural safety.'}
+      ${preparedGifts.quote}
     </div>
 
-    <h3 style="font-size: 15px; margin: 25px 0 10px 0; color: #1e293b;">📋 Detailed Question-by-Question Breakdown</h3>
+    <h3 style="font-size: 15px; margin: 25px 0 10px 0; color: #1e293b;">📋 Detailed Question Breakdown</h3>
     <table>
       <thead>
         <tr>
           <th>#</th>
-          <th>Question & Topic</th>
+          <th>Question</th>
           <th>Your Answer</th>
           <th>Correct Solution</th>
           <th style="text-align: center;">Outcome</th>
@@ -2400,14 +2294,9 @@
         ${questionsTableHtml}
       </tbody>
     </table>
-
-    <div style="margin-top: 30px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 15px;">
-      Construction and Building Engineering Materials Diagnostic System • Fit-for-Purpose Material Testing
-    </div>
   </div>
 </body>
-</html>
-      `;
+</html>`;
 
       const blob = new Blob([reportHtml], { type: 'text/html;charset=utf-8' });
       const sanitizedName = (studentName || 'Engineer').replace(/[^a-zA-Z0-9_\u0600-\u06FF]/g, '_');
@@ -2421,44 +2310,41 @@
       document.body.removeChild(link);
       URL.revokeObjectURL(link.href);
 
-      showNotificationToast("Diagnostic report downloaded successfully! 📄", "✅");
+      showNotificationToast("Diagnostic report downloaded! 📄", "✅");
       playSound('unlock_gift');
     }
 
-    // Instructor Structured CSV Exporter
+    // High-Efficiency Structured CSV Export (No tedious long text, pivot ready)
     function handleStructuredCsvExportClick() {
       if (!isInstructorUnlocked) {
         openInstructorAuthModal();
       } else {
-        exportStructuredCSV();
+        exportCleanAnalyticsCSV();
       }
     }
 
-    function exportStructuredCSV() {
+    function exportCleanAnalyticsCSV() {
       const subs = window.allSubmissions || [];
       if (subs.length === 0) {
-        showNotificationToast("No submissions recorded in this session yet.", "⚠️");
+        showNotificationToast("No submissions recorded yet.", "⚠️");
         return;
       }
 
+      // Concise headers for effortless charting in Excel / Power BI
       let headers = [
         "Rank",
-        "Timestamp",
-        "Student Name",
-        "Avatar",
-        "Role",
+        "Student_Name",
         "Score",
-        "Max Score",
-        "Accuracy (%)",
-        "Total XP",
-        "Max Streak"
+        "Total_Questions",
+        "Accuracy_Pct",
+        "Total_XP",
+        "Max_Streak",
+        "Timestamp"
       ];
 
+      // Add concise Q1..Q13 column headers
       quizQuestions.forEach((q, idx) => {
-        headers.push(`Q${idx + 1}_Topic`);
-        headers.push(`Q${idx + 1}_Student_Answer`);
-        headers.push(`Q${idx + 1}_Correct_Answer`);
-        headers.push(`Q${idx + 1}_Result`);
+        headers.push(`Q${idx + 1}_${q.shortTag.replace(/[^a-zA-Z0-9]/g, '_')}`);
       });
 
       let csvRows = [headers.join(",")];
@@ -2470,38 +2356,24 @@
       });
 
       sortedSubs.forEach((s, rankIdx) => {
-        const timeStr = s.completedAt ? new Date(s.completedAt).toISOString() : new Date().toISOString();
+        const timeStr = s.completedAt ? new Date(s.completedAt).toISOString().split('T')[0] : '';
         let row = [
           rankIdx + 1,
-          `"${timeStr}"`,
           `"${(s.studentName || '').replace(/"/g, '""')}"`,
-          `"${s.studentAvatar || '👷‍♂️'}"`,
-          `"${(s.studentRole || 'Civil Engineer').replace(/"/g, '""')}"`,
-          s.score,
+          s.score || 0,
           s.totalQuestions || 13,
-          `${s.percentage}%`,
+          `${s.percentage || 0}%`,
           s.totalXp || 0,
-          s.maxStreak || 0
+          s.maxStreak || 0,
+          `"${timeStr}"`
         ];
 
+        // Output clean 1 for Pass, 0 for Fail / Timed out
         quizQuestions.forEach((q, qIdx) => {
-          const studentAnsIdx = (s.questionAnswers && s.questionAnswers[qIdx] !== undefined) 
-            ? s.questionAnswers[qIdx] 
-            : null;
           const isCorrect = (s.questionResults && s.questionResults[qIdx] !== undefined)
             ? s.questionResults[qIdx]
-            : (studentAnsIdx === q.correctIndex);
-
-          const studentAnsText = (studentAnsIdx !== null && studentAnsIdx >= 0 && studentAnsIdx < q.options.length)
-            ? q.options[studentAnsIdx]
-            : "No Answer";
-          const correctAnsText = q.options[q.correctIndex];
-          const resultText = isCorrect ? "CORRECT" : (studentAnsIdx === null ? "TIMED_OUT" : "INCORRECT");
-
-          row.push(`"${q.topic.replace(/"/g, '""')}"`);
-          row.push(`"${studentAnsText.replace(/"/g, '""')}"`);
-          row.push(`"${correctAnsText.replace(/"/g, '""')}"`);
-          row.push(`"${resultText}"`);
+            : false;
+          row.push(isCorrect ? 1 : 0);
         });
 
         csvRows.push(row.join(","));
@@ -2509,7 +2381,7 @@
 
       const csvContent = csvRows.join("\n");
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const filename = `materials_diagnostic_complete_structured_${Date.now()}.csv`;
+      const filename = `materials_analytics_clean_${Date.now()}.csv`;
 
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
@@ -2519,11 +2391,10 @@
       document.body.removeChild(link);
       URL.revokeObjectURL(link.href);
 
-      showNotificationToast("Instructor Structured CSV downloaded! 📊", "✅");
+      showNotificationToast("Clean Analytics CSV exported! 📊", "✅");
       playSound('unlock_gift');
     }
 
-    // Single Question Deep Dive Analytics
     function populateSingleQuestionDropdown() {
       const select = document.getElementById('singleQuestionSelector');
       if (!select || select.options.length > 0) return;
@@ -2531,7 +2402,7 @@
       quizQuestions.forEach((q, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
-        opt.textContent = `Q${idx + 1}: ${q.topic}`;
+        opt.textContent = `Q${idx + 1}: ${q.shortTag}`;
         select.appendChild(opt);
       });
     }
@@ -2556,14 +2427,14 @@
           : null;
 
         if (userChoice === null) {
-          incorrectStudents.push(`${s.studentAvatar || '👷‍♂️'} ${s.studentName} (Timed Out)`);
+          incorrectStudents.push(`${s.studentName} (Timeout)`);
         } else if (userChoice >= 0 && userChoice < q.options.length) {
           countPerOption[userChoice]++;
           if (userChoice === q.correctIndex) {
             correctCount++;
-            correctStudents.push(`${s.studentAvatar || '👷‍♂️'} ${s.studentName}`);
+            correctStudents.push(`${s.studentName}`);
           } else {
-            incorrectStudents.push(`${s.studentAvatar || '👷‍♂️'} ${s.studentName} (Picked ${String.fromCharCode(65 + userChoice)})`);
+            incorrectStudents.push(`${s.studentName} (${String.fromCharCode(65 + userChoice)})`);
           }
         }
       });
@@ -2578,18 +2449,18 @@
         const letter = String.fromCharCode(65 + optIdx);
 
         optionsDistributionHtml += `
-          <div class="p-3 rounded-xl border ${isCorrectChoice ? 'border-emerald-500/60 bg-emerald-50/50 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-zinc-800 bg-white/60 dark:bg-black/40'} space-y-1.5">
-            <div class="flex items-center justify-between text-xs">
+          <div class="p-3.5 rounded-2xl border ${isCorrectChoice ? 'border-emerald-500/60 bg-emerald-50/50 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-zinc-800 bg-white/60 dark:bg-black/40'} space-y-1.5">
+            <div class="flex items-center justify-between text-xs sm:text-sm">
               <span class="font-bold flex items-center gap-2 ${isCorrectChoice ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-800 dark:text-zinc-200'}">
                 <span class="w-6 h-6 rounded-md ${isCorrectChoice ? 'bg-emerald-600 text-white' : 'bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300'} flex items-center justify-center text-xs">
                   ${letter}
                 </span>
                 <span>${optText}</span>
-                ${isCorrectChoice ? '<span class="text-[10px] px-1.5 py-0.2 bg-emerald-500 text-white rounded font-bold">CORRECT</span>' : ''}
+                ${isCorrectChoice ? '<span class="text-[10px] px-2 py-0.5 bg-emerald-500 text-white rounded font-bold">CORRECT</span>' : ''}
               </span>
-              <span class="font-mono font-bold text-xs">${count} (${pct}%)</span>
+              <span class="font-mono font-bold text-xs sm:text-sm">${count} (${pct}%)</span>
             </div>
-            <div class="w-full h-2 bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+            <div class="w-full h-2.5 bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden">
               <div class="h-full rounded-full ${isCorrectChoice ? 'bg-emerald-500' : 'bg-slate-400 dark:bg-zinc-600'}" style="width: ${pct}%"></div>
             </div>
           </div>
@@ -2597,50 +2468,41 @@
       });
 
       container.innerHTML = `
-        <div class="glass-card p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 space-y-3">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 dark:border-zinc-800 pb-2.5">
-            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-              Q${idx + 1} Deep Dive • ${q.topic}
+        <div class="glass-card p-5 sm:p-6 rounded-3xl border border-slate-200 dark:border-zinc-800 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 dark:border-zinc-800 pb-3">
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+              Q${idx + 1} Focus • ${q.shortTag}
             </span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-black ${accuracy >= 70 ? 'bg-emerald-500/20 text-emerald-600' : (accuracy >= 45 ? 'bg-amber-500/20 text-amber-600' : 'bg-rose-500/20 text-rose-600')}">
+            <span class="px-3 py-1 rounded-full text-xs sm:text-sm font-black ${accuracy >= 70 ? 'bg-emerald-500/20 text-emerald-600' : (accuracy >= 50 ? 'bg-amber-500/20 text-amber-600' : 'bg-rose-500/20 text-rose-600')}">
               ${accuracy}% Accuracy (${correctCount}/${totalAttempts} Passed)
             </span>
           </div>
 
-          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
+          <h4 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white leading-snug">
             ${q.question}
           </h4>
 
           <div class="space-y-2 pt-1">
-            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">
-              Student Choice Distribution:
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">
+              Cohort Response Distribution:
             </div>
             ${optionsDistributionHtml}
           </div>
 
-          <div class="p-3 bg-slate-100 dark:bg-zinc-900/80 rounded-xl border border-slate-200 dark:border-zinc-800 text-xs space-y-1">
-            <div class="font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
-              <span>💡</span> Engineering Rationale & Teaching Insight:
-            </div>
-            <p class="text-slate-600 dark:text-zinc-300 leading-relaxed text-[11px] sm:text-xs">
-              ${q.rationale}
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
-            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
               <span class="font-bold text-emerald-700 dark:text-emerald-300 block mb-1">
                 ✅ Correct Students (${correctStudents.length}):
               </span>
-              <p class="text-[11px] text-slate-600 dark:text-zinc-400 max-h-24 overflow-y-auto">
+              <p class="text-xs text-slate-600 dark:text-zinc-400 max-h-24 overflow-y-auto">
                 ${correctStudents.length > 0 ? correctStudents.join(', ') : 'None yet'}
               </p>
             </div>
-            <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30">
+            <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30">
               <span class="font-bold text-rose-700 dark:text-rose-300 block mb-1">
-                ❌ Needs Intervention (${incorrectStudents.length}):
+                ❌ Needs Focus (${incorrectStudents.length}):
               </span>
-              <p class="text-[11px] text-slate-600 dark:text-zinc-400 max-h-24 overflow-y-auto">
+              <p class="text-xs text-slate-600 dark:text-zinc-400 max-h-24 overflow-y-auto">
                 ${incorrectStudents.length > 0 ? incorrectStudents.join(', ') : 'None'}
               </p>
             </div>
@@ -2660,18 +2522,18 @@
 
       [viewScoreboard, viewAnalytics, viewSingleQuestion].forEach(el => el.classList.add('hidden'));
       [tabBtnScoreboard, tabBtnAnalytics, tabBtnSingleQuestion].forEach(btn => {
-        btn.className = "py-3 px-3 sm:px-4 border-b-2 border-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1.5 transition";
+        btn.className = "py-3 px-4 border-b-2 border-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1.5 transition";
       });
 
       if (tabName === 'scoreboard') {
         viewScoreboard.classList.remove('hidden');
-        tabBtnScoreboard.className = "py-3 px-3 sm:px-4 border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 flex items-center gap-1.5 transition";
+        tabBtnScoreboard.className = "py-3 px-4 border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 flex items-center gap-1.5 transition";
       } else if (tabName === 'analytics') {
         viewAnalytics.classList.remove('hidden');
-        tabBtnAnalytics.className = "py-3 px-3 sm:px-4 border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 flex items-center gap-1.5 transition";
+        tabBtnAnalytics.className = "py-3 px-4 border-b-2 border-amber-500 text-amber-600 dark:text-amber-400 flex items-center gap-1.5 transition";
       } else if (tabName === 'singleQuestion') {
         viewSingleQuestion.classList.remove('hidden');
-        tabBtnSingleQuestion.className = "py-3 px-3 sm:px-4 border-b-2 border-purple-500 text-purple-600 dark:text-purple-400 flex items-center gap-1.5 transition";
+        tabBtnSingleQuestion.className = "py-3 px-4 border-b-2 border-purple-500 text-purple-600 dark:text-purple-400 flex items-center gap-1.5 transition";
         populateSingleQuestionDropdown();
         
         const singleLockNotice = document.getElementById('singleQuestionLockNotice');
@@ -2711,12 +2573,10 @@
       if (typeof window.updateAllPlayerCounts === 'function') {
         window.updateAllPlayerCounts();
       }
-      showNotificationToast("Data synchronized with class session!");
+      showNotificationToast("Data synchronized with session!");
     }
 
     // QR Code Join Generator
-    let qrcodeInstance = null;
-
     function getResolvedQuizUrl() {
       let candidateUrl = window.location.href;
       if (!candidateUrl || candidateUrl.startsWith('about:') || candidateUrl.startsWith('blob:')) {
@@ -2761,7 +2621,7 @@
       qrContainer.innerHTML = '';
 
       try {
-        qrcodeInstance = new QRCode(qrContainer, {
+        new QRCode(qrContainer, {
           text: urlText || window.location.href,
           width: 175,
           height: 175,
@@ -2777,9 +2637,7 @@
     function regenerateQrFromInput() {
       const input = document.getElementById('quizShareUrlInput');
       const newUrl = (input.value || '').trim();
-      if (newUrl) {
-        renderQrCode(newUrl);
-      }
+      if (newUrl) renderQrCode(newUrl);
     }
 
     function resetToCurrentUrl() {
@@ -2787,7 +2645,7 @@
       const currentUrl = getResolvedQuizUrl();
       input.value = currentUrl;
       renderQrCode(currentUrl);
-      showNotificationToast("Link reset to current window URL!");
+      showNotificationToast("Link reset to current URL!");
     }
 
     function copyQuizLink() {
@@ -2799,13 +2657,13 @@
         document.execCommand('copy');
         const copyBtn = document.getElementById('copyLinkBtn');
         copyBtn.innerHTML = '<span>✅ Copied!</span>';
-        copyBtn.className = 'flex-1 py-2 px-3 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow flex items-center justify-center gap-1.5';
-        showNotificationToast("Direct quiz link copied to clipboard!");
+        copyBtn.className = 'flex-1 py-2.5 px-3 rounded-xl bg-emerald-600 text-white font-bold text-xs sm:text-sm shadow flex items-center justify-center gap-1.5';
+        showNotificationToast("Quiz link copied to clipboard!");
         playSound('select');
 
         setTimeout(() => {
           copyBtn.innerHTML = '<span>📋 Copy Link</span>';
-          copyBtn.className = 'flex-1 py-2 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow transition active:scale-95 flex items-center justify-center gap-1.5';
+          copyBtn.className = 'flex-1 py-2.5 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm shadow transition active:scale-95 flex items-center justify-center gap-1.5';
         }, 2500);
       } catch (err) {
         showNotificationToast("Please copy the link manually.", "⚠️");
@@ -2824,7 +2682,6 @@
       canvas.height = window.innerHeight;
 
       let ribbons = [];
-
       for (let i = 0; i < 90; i++) {
         ribbons.push({
           x: Math.random() * canvas.width,
@@ -2860,7 +2717,6 @@
       }
 
       loop();
-      playSound('firework_launch');
 
       if (celebrationTimeoutId) clearTimeout(celebrationTimeoutId);
       celebrationTimeoutId = setTimeout(() => {
@@ -2898,14 +2754,11 @@
       document.getElementById('welcomeScreen').classList.remove('hidden');
       document.getElementById('liveStatsBar').classList.add('hidden');
 
-      const apologyContainer = document.getElementById('aiApologyContainer');
-      if (apologyContainer) apologyContainer.classList.add('hidden');
-
       const nameInput = document.getElementById('studentNameInput');
       if (nameInput) nameInput.value = '';
 
       playSound('select');
-      showNotificationToast("Quest restarted. Good luck!", "🔄");
+      showNotificationToast("Quest reset. Good luck!", "🔄");
     }
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -2919,3 +2772,4 @@
   </script>
 </body>
 </html>
+```
